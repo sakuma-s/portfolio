@@ -1,10 +1,5 @@
 <?php
-//DB接続
-try {
-    $db = new PDO('mysql:dbname=board;host=localhost;port=8889;charset=utf8', 'root', 'root');
-} catch (PDOException $e) {
-    echo 'DB接続エラー: ' . $e->getMessage();
-}
+require('dbconnect.php');
 //投稿の入力
 echo 'name:';
 $name = trim(fgets(STDIN));
@@ -31,7 +26,7 @@ $text = trim(fgets(STDIN));
         </div>
         <div>
             <label for="message">今の弱音をお書きください。多分誰かが励ましてくれます。</label>
-            <textarea type="text" name="message" row="10" cols="30"></textarea>
+            <textarea type="text" name="message" id="message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"></textarea>
         </div>
     </form>
 </body>
