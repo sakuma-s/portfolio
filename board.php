@@ -14,19 +14,19 @@ require('create.php');
 <body>
     <h1>掲示板(仮)</h1>
     <form action="" method="POST">
-        <main>
-            <!--エラー文記入-->
-            <div>
-                <label for="name">名前</label>
-                <input type="text" name="name" id="name">
-            </div>
-            <div>
-                <label for="message">今の弱音をお書きください。多分誰かが励ましてくれます。</label>
-                <textarea type="text" name="message" id="message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"></textarea>
-            </div>
-            <button type="submit">投稿</button>
-        </main>
+        <!--エラー文記入-->
+        <div>
+            <label for="name">名前</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div>
+            <label for="message">今の弱音をお書きください。多分誰かが励ましてくれます。</label>
+            <textarea type="text" name="message" id="message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"></textarea>
+        </div>
+        <button type="submit">投稿</button>
     </form>
+    <main>
+    </main>
 </body>
 
 </html>
