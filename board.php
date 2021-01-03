@@ -1,6 +1,7 @@
 <?php
 require('dbconnect.php');
 require('create.php');
+//var_dump($_POST);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
