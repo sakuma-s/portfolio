@@ -1,12 +1,7 @@
 <?php
 require('dbconnect.php');
-//投稿の入力
-echo 'name:';
-$name = trim(fgets(STDIN));
-echo 'text:';
-$text = trim(fgets(STDIN));
+
 ?>
-<!--投稿一覧(表示数を10件程度にする)-->
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -28,6 +23,7 @@ $text = trim(fgets(STDIN));
             <label for="message">今の弱音をお書きください。多分誰かが励ましてくれます。</label>
             <textarea type="text" name="message" id="message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"></textarea>
         </div>
+        <button type="submit">投稿</button>
     </form>
 </body>
 
