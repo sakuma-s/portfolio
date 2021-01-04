@@ -17,7 +17,7 @@ require('create.php');
     <form action="" method="POST">
         <!--エラー文記入-->
         <div>
-            <label for="name">名前</label>
+            <label for="name">ニックネーム</label>
             <input type="text" name="name" id="name">
         </div>
         <div>
