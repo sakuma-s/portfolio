@@ -27,6 +27,12 @@ require('create.php');
         <button type="submit">投稿</button>
     </form>
     <main>
+        <?php foreach ($list as $value) : ?>
+            <?php echo $value['id']; ?>
+            <?php echo $value['name']; ?>
+            <?php echo $value['message']; ?>
+            <?php echo $value['created']; ?>
+        <?php endforeach; ?>
     </main>
 </body>
 
