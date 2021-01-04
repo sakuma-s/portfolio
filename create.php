@@ -1,18 +1,13 @@
 <?php
 require('dbconnect.php');
 //データ登録
-if (!empty($_POST['submit'])) {
-    $message = $db->prepare('INSERT INTO posts SET name=?, message=?, created=NOW()');
-    $message->execute(array($_POST['name'], $_POST['message']));
-    // ('Location: board.php');
-    // exit();
-} else {
-    echo '未入力部分があります。入力してください。';
-}
+$statement = $db->prepare('INSERT INTO posts SET name=?, message=?, created=NOW()');
+$statement->execute(array($_POST['name'], $_POST['message']));
+// ('Location: board.php');
+// exit();
+$list = []; //データベースの取り出し
 //データ取得
-$records = $db->query('SELECT * FROM posts');
-while ($record = $records->fetch()) {
-    echo ($record['id'] . PHP_EOL);
-    echo ($record['name'] . PHP_EOL);
-    echo ($record['message'] . PHP_EOL);
+$sql = $db->query('SELECT * FROM posts');
+while ($posts = $sql->fetch()) {
+    $list[] = $posts;
 }
