@@ -1,7 +1,6 @@
 <?php
 require('dbconnect.php');
 require('create.php');
-//var_dump($_POST);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -15,7 +14,13 @@ require('create.php');
 <body>
     <h1>掲示板(仮)</h1>
     <form action="" method="POST">
-        <!--エラー文記入-->
+        <?php if (count($errors_message)) : ?>
+            <ul>
+                <?php foreach ($errors_message as $error) : ?>
+                    <li><?php echo $error; ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
         <div>
             <label for="name">ニックネーム</label>
             <input type="text" name="name" id="name">

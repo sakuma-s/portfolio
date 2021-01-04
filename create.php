@@ -3,7 +3,6 @@ require('dbconnect.php');
 //データ登録
 $statement = $db->prepare('INSERT INTO posts SET name=?, message=?, created=NOW()');
 $result = $statement->execute(array($_POST['name'], $_POST['message']));
-
 //バリデーション処理
 $errors_message = [];
 if (empty($_POST['name'])) {
