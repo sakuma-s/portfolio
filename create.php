@@ -4,11 +4,16 @@ require('dbconnect.php');
 $statement = $db->prepare('INSERT INTO posts SET name=?, message=?, created=NOW()');
 $result = $statement->execute(array($_POST['name'], $_POST['message']));
 //バリデーション処理
-if ($_POST['name'] === '') {
-    echo 'ニックネームを入力してください';
-}
-if ($_POST['message'] === '') {
-    echo '投稿が未入力です';
+function validate($board)
+{
+    $errors = [];
+    if ($board['name'] === '') {
+        $errors['name'] = 'ニックネームを入力してください';
+    }
+    if ($board['message'] === '') {
+        $errors['message'] = '投稿が未入力です';
+    }
+    return $errors;
 }
 $list = []; //データベースの取り出し
 //データ取得
@@ -16,8 +21,13 @@ $sql = $db->query('SELECT * FROM posts');
 while ($posts = $sql->fetch()) {
     $list[] = $posts;
 }
-//二重登録防止
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    header("Location: board.php");
-    exit;
+    $board = [
+        'name' => $_POST['name'],
+        'message' => $_POST['message']
+    ];
 }
+$errors = validate($board);
+// header("Location: board.php");
+//     exit;
