@@ -29,7 +29,7 @@
     </form>
     <main>
         <?php foreach ($list as $value) : ?>
-            <?php echo $value['id']; ?>
+            <div><?php echo $value['id']; ?></div>
             <?php echo $value['name']; ?>
             <?php echo $value['message']; ?>
             <?php echo $value['created']; ?>
