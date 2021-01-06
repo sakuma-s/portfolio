@@ -7,10 +7,10 @@ $result = $statement->execute(array($_POST['name'], $_POST['message']));
 function validate($board)
 {
     $errors = [];
-    if ($board['name'] === '') {
+    if (!strlen($board['name'])) {
         $errors['name'] = 'ニックネームを入力してください';
     }
-    if ($board['message'] === '') {
+    if (!strlen($board['message'])) {
         $errors['message'] = '投稿が未入力です';
     }
     return $errors;
@@ -29,5 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ];
 }
 $errors = validate($board);
-// header("Location: board.php");
 //     exit;
+//header("Location: board.php");
+include 'board.php';
