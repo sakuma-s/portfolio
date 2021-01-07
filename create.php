@@ -4,7 +4,7 @@ require 'escape.php';
 //データ登録
 function createBoard($db)
 {
-    $statement = $db->prepare('INSERT INTO posts SET name=?, message=?, created=NOW()');
+    $statement = $db->prepare('INSERT INTO posts SET name=?, message=?,created=NOW()');
     $statement->execute(array($_POST['name'], $_POST['message']));
 }
 //バリデーション処理
@@ -33,7 +33,7 @@ function listBoard($db)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $board = [
         'name' => $_POST['name'],
-        'message' => $_POST['message']
+        'message' => $_POST['message'],
     ];
     $errors = validate($board);
     if (!count($errors)) {
@@ -43,3 +43,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 include 'board.php';
+//header("Location: board.php");
