@@ -1,5 +1,6 @@
 <?php
 require 'dbconnect.php';
+require 'escape.php';
 //データ登録
 function createBoard($db)
 {
@@ -23,7 +24,7 @@ function listBoard($db)
     //データベースの取り出し
     $list = [];
     //データ取得
-    $sql = $db->query('SELECT * FROM posts');
+    $sql = $db->query('SELECT * FROM posts ORDER BY id DESC');
     while ($posts = $sql->fetch()) {
         $list[] = $posts;
     }
@@ -39,7 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $db = dbConnect();
         createBoard($db);
         $list = listBoard($db);
-        //header("Location: board.php");
     }
 }
 include 'board.php';
