@@ -29,10 +29,10 @@
     </form>
     <main>
         <?php foreach ($list as $value) : ?>
-            <div><?php echo $value['id']; ?></div>
-            <?php echo htmlspecialchars($value['name'], ENT_QUOTES, "UTF-8"); ?>
-            <?php echo htmlspecialchars($value['message'], ENT_QUOTES, "UTF-8"); ?>
-            <?php echo $value['created']; ?>
+            <div><a href=""><?php echo $value['id']; ?></a></div>
+            <div><?php echo h($value['name']); ?></div>
+            <div><?php echo h($value['message']); ?></div>
+            <div><?php echo $value['created']; ?></div>
         <?php endforeach; ?>
     </main>
 </body>
