@@ -1,6 +1,5 @@
 <?php
-require('dbconnect.php');
-require('board.php');
+require 'dbconnect.php';
 //データ登録
 function createBoard($db)
 {
@@ -28,6 +27,7 @@ function listBoard($db)
     while ($posts = $sql->fetch()) {
         $list[] = $posts;
     }
+    return $list;
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $board = [
@@ -38,7 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!count($errors)) {
         $db = dbConnect();
         createBoard($db);
+        $list = listBoard($db);
         //header("Location: board.php");
     }
 }
-//include 'board.php';
+include 'board.php';
