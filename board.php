@@ -19,19 +19,19 @@
         <?php endif; ?>
         <div>
             <label for="name">ニックネーム</label>
-            <input type="text" name="name" id="name">
+            <input type="text" name="name" id="name" value="<?php echo $board['name'] ?>">
         </div>
         <div>
             <label for="message">今の弱音をお書きください。多分誰かが励ましてくれます。</label>
-            <textarea type="text" name="message" id="message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"></textarea>
+            <textarea type="text" name="message" id="message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"><?php echo $board['message'] ?></textarea>
         </div>
         <button type="submit">投稿</button>
     </form>
     <main>
         <?php foreach ($list as $value) : ?>
             <div><?php echo $value['id']; ?></div>
-            <?php echo $value['name']; ?>
-            <?php echo $value['message']; ?>
+            <?php echo htmlspecialchars($value['name'], ENT_QUOTES, "UTF-8"); ?>
+            <?php echo htmlspecialchars($value['message'], ENT_QUOTES, "UTF-8"); ?>
             <?php echo $value['created']; ?>
         <?php endforeach; ?>
     </main>
