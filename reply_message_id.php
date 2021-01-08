@@ -14,7 +14,6 @@ function createBoard($db)
 // }
 $db = dbconnect($db);
 createBoard($db);
-var_dump($_POST['reply_message_id']);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
