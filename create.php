@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $board = [
         'name' => $_POST['name'],
         'message' => $_POST['message'],
+        //'reply_message_id' => $_POST['reply_message_id']
     ];
     $errors = validate($board);
     if (!count($errors)) {

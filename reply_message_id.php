@@ -1,19 +1,14 @@
 <?php
 require 'dbconnect.php';
-//require 'escape.php';
-//データ登録
+//投稿へのコメント
 function createBoard($db)
 {
-    $statement = $db->prepare('INSERT INTO posts SET reply_message_id=?');
+    $statement = $db->prepare('UPDATE posts SET reply_message_id=? WHERE id=?');
     $statement->execute(array($_POST['reply_message_id']));
 }
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//     $board = [
-//         'reply_message_id' => $_POST['reply_message_id']
-//     ];
-// }
-$db = dbconnect($db);
+$db = dbconnect();
 createBoard($db);
+var_dump($_REQUEST);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
