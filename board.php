@@ -32,7 +32,7 @@
             <div><?php echo ($value['id']); ?></div>
             <div><?php echo h($value['name']); ?></div>
             <div><?php echo h($value['message']); ?></div>
-            <div><?php echo h($value['reply_message']); ?></div>
+            <div><a href="reply_message.php?id=<?php echo ($value['id']); ?>">コメント : </a><?php echo h($value['reply_message']); ?></div>
             <div><?php echo $value['created']; ?></div>
         <?php endforeach; ?>
     </main>
