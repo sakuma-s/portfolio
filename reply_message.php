@@ -3,12 +3,11 @@ require 'dbconnect.php';
 //投稿へのコメント
 function createBoard($db)
 {
-    $statement = $db->prepare('UPDATE posts SET reply_message_id=? WHERE id=?');
-    $statement->execute(array($_POST['reply_message_id'], $_REQUEST['id']));
+    $statement = $db->prepare('UPDATE posts SET reply_message=? WHERE id=?');
+    $statement->execute(array($_POST['reply_message'], $_REQUEST['id']));
 }
 $db = dbconnect();
 createBoard($db);
-var_dump($_REQUEST);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -22,8 +21,8 @@ var_dump($_REQUEST);
 <body>
     <h1>掲示板(仮)</h1>
     <form action="" method="POST">
-        <label for="reply_message_id">励ましの言葉をお願いいたします</label>
-        <textarea type="text" name="reply_message_id" id="reply_message_id" placeholder="140字までになります" maxlength="140" rows="6" cols="50"></textarea>
+        <label for="reply_message">励ましの言葉をお願いいたします</label>
+        <textarea type="text" name="reply_message" id="reply_message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"></textarea>
         <button type="submit">投稿</button>
     </form>
 </body>
