@@ -1,6 +1,5 @@
 <?php
 require 'dbconnect.php';
-//$id = $_REQUEST['id'];
 //投稿へのコメント
 function createBoard($db)
 {

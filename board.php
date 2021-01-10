@@ -29,7 +29,7 @@
     </form>
     <main>
         <?php foreach ($list as $value) : ?>
-            <div><?php echo ($value['id']); ?></a></div>
+            <div><?php echo ($value['id']); ?></div>
             <div><?php echo h($value['name']); ?></div>
             <div><?php echo h($value['message']); ?></div>
             <div><?php echo h($value['reply_message_id']); ?><a href="reply_message_id.php?id=<?php echo ($value['id']); ?>">コメント</a></div>
@@ -39,5 +39,4 @@
 </body>
 
 </html>
-<!--投稿の返信-->
 <!--投稿の削除-->
