@@ -44,5 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $list = listBoard($db);
     }
 }
+//$list = listBoard($db);
 include 'board.php';
 //header("Location: create.php");
