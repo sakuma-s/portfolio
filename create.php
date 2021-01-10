@@ -1,7 +1,7 @@
 <?php
 require 'dbconnect.php';
-
 require 'escape.php';
+
 //データ登録
 function createBoard($db)
 {
@@ -45,5 +45,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 //$list = listBoard($db);
-include 'board.php';
 //header("Location: create.php");
+include 'board.php';
