@@ -1,13 +1,13 @@
 <?php
 require 'dbconnect.php';
 //投稿へのコメント
-function createBoard($db)
+function commentBoard($db)
 {
     $statement = $db->prepare('UPDATE posts SET reply_message=? WHERE id=?');
     $statement->execute(array($_POST['reply_message'], $_REQUEST['id']));
 }
 $db = dbconnect();
-createBoard($db);
+commentBoard($db);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
