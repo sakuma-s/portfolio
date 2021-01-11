@@ -5,15 +5,15 @@ require 'escape.php';
 //データ登録
 function createBoard($db)
 {
-    $statement = $db->prepare('INSERT INTO posts SET name=?, message=?,created=NOW()');
-    $statement->execute(array($_POST['name'], $_POST['message']));
+    $statement = $db->prepare('INSERT INTO posts SET nickname=?, message=?,created=NOW()');
+    $statement->execute(array($_POST['nickname'], $_POST['message']));
 }
 //バリデーション処理
 function validate($board)
 {
     $errors = [];
-    if (!strlen($board['name'])) {
-        $errors['name'] = 'ニックネームを入力してください';
+    if (!strlen($board['nickname'])) {
+        $errors['nickname'] = 'ニックネームを入力してください';
     }
     if (!strlen($board['message'])) {
         $errors['message'] = '投稿が未入力です';
@@ -33,7 +33,7 @@ function listBoard($db)
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $board = [
-        'name' => $_POST['name'],
+        'nickname' => $_POST['nickname'],
         'message' => $_POST['message'],
         //'reply_message_id' => $_POST['reply_message_id']
     ];

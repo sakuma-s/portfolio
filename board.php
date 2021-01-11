@@ -18,8 +18,8 @@
             </ul>
         <?php endif; ?>
         <div>
-            <label for="name">ニックネーム</label>
-            <input type="text" name="name" id="name" value="<?php echo $board['name'] ?>">
+            <label for="nickname">ニックネーム</label>
+            <input type="text" name="nickname" id="nickname" value="<?php echo $board['nickname'] ?>">
         </div>
         <div>
             <label for="message">今の弱音をお書きください。多分誰かが励ましてくれます。</label>
@@ -30,7 +30,7 @@
     <main>
         <?php foreach ($list as $value) : ?>
             <div><?php echo ($value['id']); ?></div>
-            <div><?php echo h($value['name']); ?></div>
+            <div><?php echo h($value['nickname']); ?></div>
             <div><?php echo h($value['message']); ?></div>
             <div><a href="reply_message.php?id=<?php echo ($value['id']); ?>">コメント : </a><?php echo h($value['reply_message']); ?></div>
             <div><?php echo $value['created']; ?></div>
