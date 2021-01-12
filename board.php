@@ -1,3 +1,23 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+session_start();
+//トークンの発行
+$token = uniqid('', true);;
+//トークンをセッション変数にセット
+$_SESSION['token'] = $token;
+$errors = [];
+$board = [
+    'nickname' => '',
+    'message' => ''
+];
+require 'dbconnect.php';
+require 'create.php';
+$db = dbConnect();
+createBoard($db);
+$list = listBoard($db);
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -9,22 +29,21 @@
 
 <body>
     <h1>掲示板(仮)</h1>
-    <form action="create.php" method="POST">
-        <?php if (count($errors)) : ?>
-            <ul>
-                <?php foreach ($errors as $error) : ?>
-                    <li><?php echo $error; ?></li>
-                <?php endforeach; ?>
-            </ul>
+    <form action="" method="POST">
+        <?php if (count($errors) > 0) : ?>
+            <?php foreach ($errors as $error) : ?>
+                <li><?php echo $error; ?></li>
+            <?php endforeach; ?>
         <?php endif; ?>
         <div>
             <label for="nickname">ニックネーム</label>
-            <input type="text" name="nickname" id="nickname" value="<?php echo $board['nickname'] ?>">
+            <input type="text" name="nickname" id="nickname">
         </div>
         <div>
-            <label for="message">今の弱音をお書きください。多分誰かが励ましてくれます。</label>
-            <textarea type="text" name="message" id="message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"><?php echo $board['message'] ?></textarea>
+            <label for="message">書き込む</label>
+            <textarea type="text" name="message" id="message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"></textarea>
         </div>
+        <input type="hidden" name="token" value="<?php echo $token; ?>">
         <button type="submit">投稿</button>
     </form>
     <main>
@@ -39,4 +58,3 @@
 </body>
 
 </html>
-<!--投稿の削除-->
