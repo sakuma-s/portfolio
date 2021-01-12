@@ -20,7 +20,7 @@ commentBoard($db);
 
 <body>
     <h1>掲示板(仮)</h1>
-    <a href="create.php">一覧画面に戻る</a>
+    <a href="board.php">一覧画面に戻る</a>
     <form action="" method="POST">
         <label for="reply_message">励ましの言葉をお願いいたします</label>
         <textarea type="text" name="reply_message" id="reply_message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"></textarea>
