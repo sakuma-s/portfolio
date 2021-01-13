@@ -34,4 +34,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'nickname' => $_POST['nickname'],
         'message' => $_POST['message'],
     ];
+    header('Location: board.php');
 }

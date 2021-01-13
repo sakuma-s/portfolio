@@ -5,6 +5,7 @@ $errors = validate($board);
 $db = dbConnect();
 createBoard($db);
 $list = listBoard($db);
+var_dump($_SERVER['REQUEST_METHOD']);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
