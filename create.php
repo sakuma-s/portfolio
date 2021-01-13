@@ -1,24 +1,24 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-// POSTされたトークンを取得
-$token = isset($_POST["token"]) ? $_POST["token"] : "";
-// セッション変数のトークンを取得
-$session_token = isset($_SESSION["token"]) ? $_SESSION["token"] : "";
-// セッション変数のトークンを削除
-unset($_SESSION["token"]);
-// POSTされたトークンとセッション変数のトークンの比較
-if ($token != "" && $token == $session_token) {
-    echo "書き込みました";
-} else {
-    echo "error : 不正な登録処理です";
-    var_dump($token);
-}
-$board = [
-    'nickname',
-    'message'
-];
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
+// // POSTされたトークンを取得
+// $token = isset($_POST["token"]) ? $_POST["token"] : "";
+// // セッション変数のトークンを取得
+// $session_token = isset($_SESSION["token"]) ? $_SESSION["token"] : "";
+// // セッション変数のトークンを削除
+// unset($_SESSION["token"]);
+// // POSTされたトークンとセッション変数のトークンの比較
+// if ($token != "" && $token == $session_token) {
+//     echo "書き込みました";
+// } else {
+//     echo "error : 不正な登録処理です";
+//     var_dump($token);
+// }
+// $board = [
+//     'nickname',
+//     'message'
+// ];
 require 'escape.php';
 //データ登録
 function createBoard($db)
@@ -27,13 +27,13 @@ function createBoard($db)
     $statement->execute(array($_POST['nickname'], $_POST['message']));
 }
 //バリデーション処理
-function validate()
+function validate($board)
 {
     $errors = [];
-    if (!strlen('nickname')) {
+    if (!strlen($board['nickname'])) {
         $errors['nickname'] = 'ニックネームを入力してください';
     }
-    if (!strlen('message')) {
+    if (!strlen($board['message'])) {
         $errors['message'] = '投稿が未入力です';
     }
     return $errors;
