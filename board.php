@@ -1,22 +1,28 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-session_start();
-//トークンの発行
-$token = uniqid('', true);;
-//トークンをセッション変数にセット
-$_SESSION['token'] = $token;
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
+//session_start();
+// //トークンの発行
+// // $token = uniqid('', true);;
+// // //トークンをセッション変数にセット
+// // $_SESSION['token'] = $token;
+// $board = [
+//     'nickname' => '',
+//     'message' => ''
+// ];
 $errors = [];
-$board = [
-    'nickname' => '',
-    'message' => ''
-];
 require 'dbconnect.php';
 require 'create.php';
-$db = dbConnect();
-createBoard($db);
-$list = listBoard($db);
+$errors = validate($board);
+if (!count($errors)) {
+    $db = dbConnect();
+    createBoard($db);
+    $list = listBoard($db);
+}
+header('Location: board.php');
+
+var_dump(get_included_files());
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -40,7 +46,7 @@ $list = listBoard($db);
             <input type="text" name="nickname" id="nickname">
         </div>
         <div>
-            <label for="message">書き込む</label>
+            <label for="message">弱音を書き込んでください。多分誰かが励ましてくれます。</label>
             <textarea type="text" name="message" id="message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"></textarea>
         </div>
         <input type="hidden" name="token" value="<?php echo $token; ?>">
