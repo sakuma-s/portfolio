@@ -14,14 +14,14 @@
 $errors = [];
 require 'dbconnect.php';
 require 'create.php';
-$errors = validate($board);
 if (!count($errors)) {
     $db = dbConnect();
     createBoard($db);
     $list = listBoard($db);
+    //$errors = validate($board);
 }
-header('Location: board.php');
-
+//header('Location: board.php');
+var_dump($_SERVER['REQUEST_METHOD']);
 var_dump(get_included_files());
 ?>
 <!DOCTYPE html>
@@ -43,13 +43,12 @@ var_dump(get_included_files());
         <?php endif; ?>
         <div>
             <label for="nickname">ニックネーム</label>
-            <input type="text" name="nickname" id="nickname">
+            <input type="text" name="nickname" id="nickname" value="<?php echo $board['nickname']; ?>">
         </div>
         <div>
             <label for="message">弱音を書き込んでください。多分誰かが励ましてくれます。</label>
-            <textarea type="text" name="message" id="message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"></textarea>
+            <textarea type="text" name="message" id="message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"><?php echo $board['message']; ?></textarea>
         </div>
-        <input type="hidden" name="token" value="<?php echo $token; ?>">
         <button type="submit">投稿</button>
     </form>
     <main>
