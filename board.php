@@ -1,28 +1,10 @@
 <?php
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
-//session_start();
-// //トークンの発行
-// // $token = uniqid('', true);;
-// // //トークンをセッション変数にセット
-// // $_SESSION['token'] = $token;
-// $board = [
-//     'nickname' => '',
-//     'message' => ''
-// ];
-$errors = [];
 require 'dbconnect.php';
 require 'create.php';
-if (!count($errors)) {
-    $db = dbConnect();
-    createBoard($db);
-    $list = listBoard($db);
-    //$errors = validate($board);
-}
-//header('Location: board.php');
-var_dump($_SERVER['REQUEST_METHOD']);
-var_dump(get_included_files());
+$errors = validate($board);
+$db = dbConnect();
+createBoard($db);
+$list = listBoard($db);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
