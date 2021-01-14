@@ -5,7 +5,6 @@ $errors = validate($board);
 $db = dbConnect();
 createBoard($db);
 $list = listBoard($db);
-var_dump($_SERVER['REQUEST_METHOD']);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -13,11 +12,11 @@ var_dump($_SERVER['REQUEST_METHOD']);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>掲示板(仮)</title>
+    <title>励まし掲示板(仮)</title>
 </head>
 
 <body>
-    <h1>掲示板(仮)</h1>
+    <h1>励まし掲示板(仮)</h1>
     <form action="" method="POST">
         <?php if (count($errors) > 0) : ?>
             <?php foreach ($errors as $error) : ?>
