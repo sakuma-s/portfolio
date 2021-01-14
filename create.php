@@ -1,4 +1,7 @@
 <?php
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 require 'escape.php';
 //データ登録
 function createBoard($db)
@@ -34,5 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'nickname' => $_POST['nickname'],
         'message' => $_POST['message'],
     ];
-    header('Location: board.php');
+    $errors = validate($board);
+    if (!count($errors)) {
+        header('Location: board.php');
+    }
 }

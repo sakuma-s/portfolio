@@ -1,7 +1,6 @@
 <?php
 require 'dbconnect.php';
 require 'create.php';
-$errors = validate($board);
 $db = dbConnect();
 createBoard($db);
 $list = listBoard($db);
