@@ -37,7 +37,7 @@ $list = listBoard($db);
             <div><?php echo ($value['id']); ?></div>
             <div><?php echo h($value['nickname']); ?></div>
             <div><?php echo h($value['message']); ?></div>
-            <div><a href="reply_message.php?nickname=<?php echo ($value['nickname']); ?>">コメント : </a><?php echo h($value['reply_message']); ?></div>
+            <div><a href="reply_message.php?nickname=<?php echo ($value['nickname']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
             <div><?php echo $value['created']; ?></div>
         <?php endforeach; ?>
     </main>
