@@ -3,11 +3,14 @@ require 'dbconnect.php';
 //投稿へのコメント
 function commentBoard($db)
 {
-    $statement = $db->prepare('UPDATE posts SET reply_message=? WHERE id=?');
-    $statement->execute(array($_POST['reply_message'], $_REQUEST['id']));
+    $statement = $db->prepare('INSERT INTO posts SET reply_message=?');
+    $statement->execute(array($_POST['reply_message']));
 }
 $db = dbconnect();
 commentBoard($db);
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    echo '励ましました！一覧でご確認くださいませ!';
+}
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -23,7 +26,7 @@ commentBoard($db);
     <a href="board.php">一覧画面に戻る</a>
     <form action="" method="POST">
         <label for="reply_message">励ましの言葉をお願いいたします</label>
-        <textarea type="text" name="reply_message" id="reply_message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"><?php echo $_REQUEST['id']; ?></textarea>
+        <textarea type="text" name="reply_message" id="reply_message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"><?php echo $_REQUEST['nickname']; ?>さんへ&nbsp;</textarea>
         <button type="submit">投稿</button>
     </form>
 </body>
