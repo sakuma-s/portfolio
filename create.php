@@ -1,8 +1,7 @@
 <?php
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
 require 'escape.php';
+$_POST['nickname'] = filter_input(INPUT_POST, 'name');
+$_POST['message'] = filter_input(INPUT_POST, 'message');
 //データ登録
 function createBoard($db)
 {
