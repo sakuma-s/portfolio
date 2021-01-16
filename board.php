@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+$errors = [];
 require 'dbconnect.php';
 require 'create.php';
 $db = dbConnect();
@@ -24,18 +28,17 @@ $list = listBoard($db);
         <?php endif; ?>
         <div>
             <label for="nickname">ニックネーム</label>
-            <input type="text" name="nickname" id="nickname" value="<?php echo $board['nickname']; ?>">
+            <input type="text" name="nickname" id="nickname">
         </div>
         <div>
             <label for="message">弱音を書き込んでください。多分誰かが励ましてくれます。</label>
-            <textarea type="text" name="message" id="message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"><?php echo $board['message']; ?></textarea>
+            <textarea type="text" name="message" id="message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"></textarea>
         </div>
         <button type="submit">投稿</button>
     </form>
     <main>
         <?php foreach ($list as $value) : ?>
-            <div><?php echo ($value['id']); ?></div>
-            <div><?php echo h($value['nickname']); ?></div>
+            <div><?php echo ($value['id']); ?>&nbsp;<?php echo h($value['nickname']); ?></div>
             <div><?php echo h($value['message']); ?></div>
             <div><a href="reply_message.php?nickname=<?php echo ($value['nickname']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
             <div><?php echo $value['created']; ?></div>
