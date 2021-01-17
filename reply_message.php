@@ -7,7 +7,7 @@ $_POST['reply_message'] = filter_input(INPUT_POST, 'reply_message');
 //投稿へのコメント
 function commentBoard($db)
 {
-    $statement = $db->prepare('INSERT INTO posts SET reply_message=?');
+    $statement = $db->prepare('INSERT INTO posts SET reply_message=?, created=NOW()');
     $statement->execute(array($_POST['reply_message']));
 }
 $db = dbconnect();
