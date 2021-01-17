@@ -2,14 +2,14 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+var_dump($_SERVER['REQUEST_METHOD']);
 $errors = [];
-$id = $_GET['id'];
 require_once('dbconnect.php');
 require_once('create.php');
 $db = dbConnect();
 createBoard($db);
-$list = listBoard($db);
 deleteBoard($db, $id);
+$list = listBoard($db);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
