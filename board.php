@@ -3,11 +3,13 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 $errors = [];
+$id = $_GET['id'];
 require_once('dbconnect.php');
 require_once('create.php');
 $db = dbConnect();
 createBoard($db);
 $list = listBoard($db);
+deleteBoard($db, $id);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -41,7 +43,7 @@ $list = listBoard($db);
             <div><?php echo ($value['id']); ?>&nbsp;<?php echo h($value['nickname']); ?></div>
             <div><?php echo h($value['message']); ?></div>
             <div><a href="reply_message.php?nickname=<?php echo ($value['nickname']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
-            <div><a href="delete.php?nickname=<?php echo ($value['id']) ?>">[削除]</a></div>
+            <div><a href="?id=<?php echo ($value['id']) ?>">[削除]</a></div>
             <div><?php echo $value['created']; ?></div>
         <?php endforeach; ?>
     </main>

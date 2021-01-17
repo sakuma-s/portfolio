@@ -2,6 +2,8 @@
 require 'escape.php';
 $_POST['nickname'] = filter_input(INPUT_POST, 'nickname');
 $_POST['message'] = filter_input(INPUT_POST, 'message');
+$_GET['id'] = filter_input(INPUT_GET, 'id');
+
 //データ登録
 function createBoard($db)
 {
@@ -30,6 +32,12 @@ function listBoard($db)
         $list[] = $posts;
     }
     return $list;
+}
+//データの削除
+function deleteBoard($db, $id)
+{
+    $statement = $db->prepare('DELETE FROM posts WHERE id=?');
+    $statement->execute(array($id));
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $board = [
