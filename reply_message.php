@@ -1,5 +1,9 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require 'dbconnect.php';
+$_POST['reply_message'] = filter_input(INPUT_POST, 'reply_message');
 //投稿へのコメント
 function commentBoard($db)
 {
