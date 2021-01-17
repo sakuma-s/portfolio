@@ -1,6 +1,6 @@
 <?php
 require 'escape.php';
-$_POST['nickname'] = filter_input(INPUT_POST, 'name');
+$_POST['nickname'] = filter_input(INPUT_POST, 'nickname');
 $_POST['message'] = filter_input(INPUT_POST, 'message');
 //データ登録
 function createBoard($db)
