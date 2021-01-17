@@ -3,7 +3,7 @@ require 'escape.php';
 $_POST['nickname'] = filter_input(INPUT_POST, 'nickname');
 $_POST['message'] = filter_input(INPUT_POST, 'message');
 $_GET['id'] = filter_input(INPUT_GET, 'id');
-
+$id = $_GET['id'];
 //データ登録
 function createBoard($db)
 {
@@ -38,6 +38,7 @@ function deleteBoard($db, $id)
 {
     $statement = $db->prepare('DELETE FROM posts WHERE id=?');
     $statement->execute(array($id));
+    //header('Location: board.php');
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $board = [
