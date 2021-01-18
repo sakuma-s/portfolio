@@ -28,10 +28,17 @@ function listBoard($db)
     $list = [];
     //データ取得
     $sql = $db->query('SELECT * FROM posts ORDER BY id DESC');
-    while ($posts = $sql->fetch()) {
+    while ($posts = $sql->fetch(PDO::FETCH_ASSOC)) {
         $list[] = $posts;
     }
     return $list;
+}
+//ページネーションの作成
+function pagiNation($db, $count)
+{
+    define('max_view', 10);
+    $count = $db->prepare('SELECT COUNT(*) AS count FROM posts');
+    $count->execute();
 }
 //データの削除
 function deleteBoard($db, $id)
