@@ -9,7 +9,7 @@ require_once('create.php');
 $db = dbConnect();
 createBoard($db);
 deleteBoard($db, $id);
-list($page, $list) = pagiNation($db);
+list($page, $maxPage, $list) = pagiNation($db);
 
 // $allList = pagiNation($db);
 // $list = listBoard($db);
@@ -27,7 +27,7 @@ list($page, $list) = pagiNation($db);
 </head>
 
 <body>
-    <h1>励まし掲示板(仮)</h1>
+    <h1><a href="board.php">励まし掲示板(仮)</a></h1>
     <form action="" method="POST">
         <?php if (count($errors) > 0) : ?>
             <?php foreach ($errors as $error) : ?>
@@ -54,13 +54,17 @@ list($page, $list) = pagiNation($db);
         <?php endforeach; ?>
     </main>
     <div>
-        <?php for ($n = 1; $n <= $page; $n++) : ?>
-            <?php if ($n === $now) : ?>
-                <?php echo "<span style='padding: 5px;'>$now</span>"; ?>
-            <?php else : ?>
-                <?php echo "<a href='?page_id=$n' style='padding: 5px;'>$n</a>"; ?>
-            <?php endif; ?>
-        <?php endfor; ?>
+        <a href="?page_id=<?php echo ($page === 1); ?>">最初</a>
+        <?php if ($page > 1) : ?>
+            <a href="?page_id=<?php echo ($page - 1); ?>"><?php echo ($page - 1); ?>ページ</a>
+        <?php endif; ?>
+        |
+        <?php if ($page < $maxPage) : ?>
+            <a href="?page_id=<?php echo ($page + 1); ?>"><?php echo ($page + 1); ?>ページ</a>
+        <?php endif; ?>
+        |
+        <a href="?page_id=<?php echo $maxPage; ?>">最後</a>
+    </div>
     </div>
 </body>
 
