@@ -4,6 +4,7 @@ $_POST['nickname'] = filter_input(INPUT_POST, 'nickname');
 $_POST['message'] = filter_input(INPUT_POST, 'message');
 $_GET['id'] = filter_input(INPUT_GET, 'id');
 $id = $_GET['id'];
+$_GET['page_id'] = filter_input(INPUT_GET, 'page_id');
 //データ登録
 function createBoard($db)
 {
@@ -22,17 +23,6 @@ function validate($board)
     }
     return $errors;
 }
-// function listBoard($db)
-// {
-//     //データベースの取り出し
-//     $list = [];
-//     //データ取得
-//     $sql = $db->query('SELECT * FROM posts ORDER BY id DESC');
-//     while ($posts = $sql->fetch(PDO::FETCH_ASSOC)) {
-//         $list[] = $posts;
-//     }
-//     return $list;
-// }
 //ページネーションの作成
 function pagiNation($db)
 {
@@ -40,27 +30,29 @@ function pagiNation($db)
     $count = $db->prepare('SELECT COUNT(*) AS count FROM posts');
     $count->execute();
     $total_count = $count->fetch(PDO::FETCH_ASSOC);
-    $page = ceil($total_count['count'] / max_view);
+    $maxPage = ceil($total_count['count'] / max_view);
     //ページ番号の取得
-    if (!isset($_GET['page_id'])) {
-        $now = 1;
+    $page = $_GET['page_id'];
+    if ($page === '') {
+        $page = 1;
     } else {
-        $now = $_GET['page_id'];
+        $page = $_GET['page_id'];
     }
+    $page = max($page, 1);
+    $page = min($page, $maxPage);
     //表示する記事の取得
     $select = $db->prepare("SELECT * FROM posts ORDER BY id DESC LIMIT :start,:max ");
     //1ページ目の処理
-    if ($now === 1) {
-        $select->bindValue(":start", $now - 1, PDO::PARAM_INT);
+    if ($page === 1) {
+        $select->bindValue(":start", $page - 1, PDO::PARAM_INT);
         $select->bindValue(":max", max_view, PDO::PARAM_INT);
     } else {
-        $select->bindValue(":start", ($now - 1) * max_view, PDO::PARAM_INT);
+        $select->bindValue(":start", ($page - 1) * max_view, PDO::PARAM_INT);
         $select->bindValue(":max", max_view, PDO::PARAM_INT);
     }
     $select->execute();
     $list = $select->fetchAll(PDO::FETCH_ASSOC);
-
-    return [$page, $list];
+    return [$page, $maxPage, $list];
 }
 //データの削除
 function deleteBoard($db, $id)
