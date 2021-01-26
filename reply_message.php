@@ -3,12 +3,14 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require 'dbconnect.php';
-$_POST['reply_message'] = filter_input(INPUT_POST, 'reply_message');
+// $_POST['reply_message'] = filter_input(INPUT_POST, 'reply_message');
 //投稿へのコメント
 function commentBoard($db)
 {
-    $statement = $db->prepare('INSERT INTO posts SET reply_message=?, created=NOW()');
-    $statement->execute(array($_POST['reply_message']));
+    if (isset($_POST['reply_message'])) {
+        $statement = $db->prepare('INSERT INTO posts SET reply_message=?, created=NOW()');
+        $statement->execute(array($_POST['reply_message']));
+    }
 }
 $db = dbconnect();
 commentBoard($db);
