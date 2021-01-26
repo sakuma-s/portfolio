@@ -1,15 +1,17 @@
 <?php
 require 'escape.php';
-$_POST['nickname'] = filter_input(INPUT_POST, 'nickname');
-$_POST['message'] = filter_input(INPUT_POST, 'message');
 $_GET['id'] = filter_input(INPUT_GET, 'id');
 $id = $_GET['id'];
 $_GET['page_id'] = filter_input(INPUT_GET, 'page_id');
 //データ登録
-function createBoard($db)
+function createBoard($db, $board)
 {
-    $statement = $db->prepare('INSERT INTO posts SET nickname=?, message=?,created=NOW()');
-    $statement->execute(array($_POST['nickname'], $_POST['message']));
+    if (!empty($board['nickname']) && !empty($board['message'])) {
+        $statement = $db->prepare('INSERT INTO posts SET nickname=?, message=?,created=NOW()');
+        $statement->execute(array($board['nickname'], $board['message']));
+    }
+    var_dump($board['nickname']);
+    var_dump($_SERVER['REQUEST_METHOD']);
 }
 //バリデーション処理
 function validate($board)
