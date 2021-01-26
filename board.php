@@ -3,19 +3,13 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 $errors = [];
-$now = [];
+$board = [];
 require_once('dbconnect.php');
 require_once('create.php');
 $db = dbConnect();
-createBoard($db);
+createBoard($db, $board);
 deleteBoard($db, $id);
 list($page, $maxPage, $list) = pagiNation($db);
-
-// $allList = pagiNation($db);
-// $list = listBoard($db);
-// var_dump($allList);
-// $list = listBoard($db);
-//var_dump(h($list)); alertが出てしまうので注意！hを追加したから大丈夫かもしれない
 ?>
 <!DOCTYPE html>
 <html lang="ja">
