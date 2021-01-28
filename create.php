@@ -10,8 +10,6 @@ function createBoard($db, $board)
         $statement = $db->prepare('INSERT INTO posts SET nickname=?, message=?,created=NOW()');
         $statement->execute(array($board['nickname'], $board['message']));
     }
-    var_dump($board['nickname']);
-    var_dump($_SERVER['REQUEST_METHOD']);
 }
 //バリデーション処理
 function validate($board)
