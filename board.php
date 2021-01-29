@@ -4,9 +4,9 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 $errors = [];
 $board = [];
-require_once('dbconnect.php');
+require_once('connect.php');
 require_once('create.php');
-$db = dbConnect();
+$db = connect();
 createBoard($db, $board);
 deleteBoard($db, $id);
 list($page, $maxPage, $list) = pagiNation($db);
@@ -46,7 +46,7 @@ list($page, $maxPage, $list) = pagiNation($db);
             <?php foreach ($list as $value) : ?>
                 <div><?php echo ($value['id']); ?>&nbsp;<?php echo h($value['nickname']); ?></div>
                 <div><?php echo h($value['message']); ?></div>
-                <div><a href="reply_message.php?nickname=<?php echo ($value['nickname']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
+                <div><a href="reply_message.php?id=<?php echo ($value['id']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
                 <div><a href="?id=<?php echo ($value['id']) ?>">[削除]</a></div>
                 <div><?php echo $value['created']; ?></div>
             <?php endforeach; ?>
@@ -63,7 +63,6 @@ list($page, $maxPage, $list) = pagiNation($db);
             |
             <a href="?page_id=<?php echo $maxPage; ?>">最後</a>
         </div>
-    </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
