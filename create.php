@@ -62,7 +62,6 @@ function deleteBoard($db, $id)
 {
     $statement = $db->prepare('DELETE FROM posts WHERE id=?');
     $statement->execute(array($id));
-    //header('Location: board.php');
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $board = [
@@ -71,6 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ];
     $errors = validate($board);
     if (!count($errors)) {
-        header('Location: board.php');
+        header('Location: index.php');
     }
 }
