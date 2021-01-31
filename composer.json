@@ -1,0 +1,6 @@
+{
+    "name": "ss/portfolio",
+    "require": {
+        "php": "^7.3.21"
+    }
+}
