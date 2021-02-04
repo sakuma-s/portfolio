@@ -3,13 +3,10 @@
 function connect()
 {
     $db = parse_url(getenv("CLEARDB_DATABASE_URL"));
-    $db['DB_DATABASE'] = ltrim($db['path'], '/');
-    $dbHost = $db['DB_HOST'];
-    $dbUsername = $db['DB_USERNAME'];
-    $dbPassword = $db['DB_PASSWORD'];
-    $dbDatabase = substr($db['DB_DATABASE'], 1);
+    $db['dbname'] = ltrim($db['path'], '/');
+    $dsn = "mysql:host={$db['host']};dbname={$db['dbname']};charset=utf8";
     try {
-        $db = new PDO("mysql:dbname={$dbDatabase}, host={$dbHost}, charset=utf8, {$dbUsername}, {$dbPassword}");
+        $db = new PDO($dsn, $db['user'], $db['pass']);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     } catch (PDOException $Exception) {
