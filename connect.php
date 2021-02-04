@@ -1,15 +1,14 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
+//require __DIR__ . '/vendor/autoload.php';
 function connect()
 {
     try {
-        $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-        $dotenv->load();
+        $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-        $dbHost = $_ENV['DB_HOST'];
-        $dbUsername = $_ENV['DB_USERNAME'];
-        $dbPassword = $_ENV['DB_PASSWORD'];
-        $dbDatabase = $_ENV['DB_DATABASE'];
+        $dbHost = $url['DB_HOST'];
+        $dbUsername = $url['DB_USERNAME'];
+        $dbPassword = $url['DB_PASSWORD'];
+        $dbDatabase = $url['DB_DATABASE'];
 
         $db = new PDO("mysql:dbname={$dbDatabase}, host={$dbHost}, charset=utf8, {$dbUsername}, {$dbPassword}");
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
