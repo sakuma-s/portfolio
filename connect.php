@@ -8,7 +8,7 @@ function connect()
         $dbHost = $url['DB_HOST'];
         $dbUsername = $url['DB_USERNAME'];
         $dbPassword = $url['DB_PASSWORD'];
-        $dbDatabase = $url['DB_DATABASE'];
+        $dbDatabase = substr($url['DB_DATABASE'], 1);
 
         $db = new PDO("mysql:dbname={$dbDatabase}, host={$dbHost}, charset=utf8, {$dbUsername}, {$dbPassword}");
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
