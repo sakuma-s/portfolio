@@ -1,5 +1,4 @@
 <?php
-//require __DIR__ . '/vendor/autoload.php';
 function connect()
 {
     $db = parse_url(getenv("CLEARDB_DATABASE_URL"));
