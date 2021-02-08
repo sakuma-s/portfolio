@@ -9,7 +9,7 @@ function commentBoard($db, $board)
 {
     if (!empty($board['reply_message']) && (iconv_strlen($board['reply_message']) >= 7)) {
         $statement = $db->prepare('INSERT INTO posts SET reply_message=?, created=NOW()');
-        $result = $statement->execute(array($board['reply_message']));
+        $statement->execute(array($board['reply_message']));
     }
 }
 function validate($board)
