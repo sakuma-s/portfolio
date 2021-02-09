@@ -7,7 +7,9 @@ $board = [];
 require_once('connect.php');
 require_once('create.php');
 $db = connect();
-createBoard($db, $board);
+date_default_timezone_set('Asia/Tokyo');
+$time = date_default_timezone_get();
+createBoard($db, $board, $time);
 deleteBoard($db, $id);
 list($page, $maxPage, $list) = pagiNation($db);
 ?>
