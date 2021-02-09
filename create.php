@@ -11,7 +11,7 @@ function createBoard($db, $board)
 {
     date_default_timezone_set('Asia/Tokyo');
     if (!empty($board['nickname']) && !empty($board['message'])) {
-        $statement = $db->prepare('INSERT INTO posts SET nickname=?, message=?,created=strtotime("now + 9 hour")');
+        $statement = $db->prepare('INSERT INTO posts SET nickname=?, message=?,created=strtotime("now")');
         $statement->execute(array($board['nickname'], $board['message']));
     }
 }
