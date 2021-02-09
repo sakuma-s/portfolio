@@ -10,7 +10,6 @@ $_GET['page_id'] = filter_input(INPUT_GET, 'page_id');
 function createBoard($db, $board)
 {
     if (!empty($board['nickname']) && !empty($board['message'])) {
-        date_default_timezone_set('Asia/Tokyo');
         $statement = $db->prepare('INSERT INTO posts SET nickname=?, message=?,created=NOW()');
         $statement->execute(array($board['nickname'], $board['message']));
     }
