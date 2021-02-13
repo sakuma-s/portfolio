@@ -53,7 +53,7 @@ function pagiNation($db)
         $select->bindValue(":start", ($page - 1) * max_view, PDO::PARAM_INT);
         $select->bindValue(":max", max_view, PDO::PARAM_INT);
     }
-    // $select->setTimezone('Asia/Tokyo');
+    $select->setTimezone('Asia/Tokyo');
     $select->execute();
     $list = $select->fetchAll(PDO::FETCH_ASSOC);
     return [$page, $maxPage, $list];
