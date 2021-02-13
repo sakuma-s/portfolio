@@ -48,7 +48,7 @@ list($page, $maxPage, $list) = pagiNation($db);
                 <div><?php echo h($value['message']); ?></div>
                 <div><a href="reply_message.php?id=<?php echo ($value['id']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
                 <div><a href="?id=<?php echo ($value['id']) ?>">[削除]</a></div>
-                <div><?php echo $value['created']->setTimezone('Asia/Tokyo');; ?></div>
+                <div><?php echo $value['created']->setTimezone('Asia/Tokyo'); ?></div>
             <?php endforeach; ?>
         </main>
         <div>
