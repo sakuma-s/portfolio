@@ -44,7 +44,7 @@ function pagiNation($db)
     $page = max($page, 1);
     $page = min($page, $maxPage);
     //表示する記事の取得
-    $select = $db->prepare("SELECT * FROM posts ORDER BY id DESC LIMIT :start,:max ");
+    $select = $db->prepare("SELECT * FROM posts where created + interval 9 hour ORDER BY id DESC LIMIT :start,:max ");
     //1ページ目の処理
     if ($page === 1) {
         $select->bindValue(":start", $page - 1, PDO::PARAM_INT);
