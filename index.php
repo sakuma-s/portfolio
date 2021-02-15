@@ -10,6 +10,7 @@ $db = connect();
 createBoard($db, $board);
 deleteBoard($db, $id);
 list($page, $maxPage, $list) = pagiNation($db);
+$now = new DateTime();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -48,8 +49,8 @@ list($page, $maxPage, $list) = pagiNation($db);
                 <div><?php echo h($value['message']); ?></div>
                 <div><a href="reply_message.php?id=<?php echo ($value['id']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
                 <div><a href="?id=<?php echo ($value['id']) ?>">[削除]</a></div>
+                <div><?php echo $now->format('Y年m月d日 H時i分s秒'); ?></div>
             <?php endforeach; ?>
-            <div><?php echo date('Y年m月d日 H時i分s秒', filemtime(__FILE__)); ?></div>
         </main>
         <div>
             <a href="?page_id=<?php echo ($page === 1); ?>">最初</a>
