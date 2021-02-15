@@ -10,7 +10,6 @@ $db = connect();
 createBoard($db, $board);
 deleteBoard($db, $id);
 list($page, $maxPage, $list) = pagiNation($db);
-$now = new DateTime();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
