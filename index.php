@@ -49,7 +49,7 @@ $now = new DateTime();
                 <div><?php echo h($value['message']); ?></div>
                 <div><a href="reply_message.php?id=<?php echo ($value['id']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
                 <div><a href="?id=<?php echo ($value['id']) ?>">[削除]</a></div>
-                <div><?php echo $now->format('Y年m月d日 H時i分s秒'); ?></div>
+                <div><?php echo $value['created']; ?></div>
             <?php endforeach; ?>
         </main>
         <div>
