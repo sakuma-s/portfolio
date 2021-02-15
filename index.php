@@ -10,6 +10,7 @@ $db = connect();
 createBoard($db, $board);
 deleteBoard($db, $id);
 list($page, $maxPage, $list) = pagiNation($db);
+$t = filemtime(dirname(__FILE__) . '/index.php');
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -48,7 +49,7 @@ list($page, $maxPage, $list) = pagiNation($db);
                 <div><?php echo h($value['message']); ?></div>
                 <div><a href="reply_message.php?id=<?php echo ($value['id']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
                 <div><a href="?id=<?php echo ($value['id']) ?>">[削除]</a></div>
-                <div><?php echo date('Y年m月d日 H時i分s秒'); ?></div>
+                <div><?php echo date('Y年m月d日 H時i分s秒', $t); ?></div>
             <?php endforeach; ?>
         </main>
         <div>
