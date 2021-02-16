@@ -51,7 +51,7 @@ list($page, $maxPage, $list) = pagiNation($db);
                 <div><?php echo $value['created']; ?></div>
             <?php endforeach; ?>
         </main>
-        <div>
+        <div class="mt-5 mb-5">
             <a href="?page_id=<?php echo ($page === 1); ?>">最初</a>
             <?php if ($page > 1) : ?>
                 <a href="?page_id=<?php echo ($page - 1); ?>"><?php echo ($page - 1); ?>ページ</a>
