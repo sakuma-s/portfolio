@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <div class="container">
-        <h1 class="mt-3 mb-5"><a class="text-body text-decoration-none" href="index.php">励まし掲示板(仮)</a></h1>
+        <h1 class="text-center mt-3 mb-5"><a class="text-body text-decoration-none" href="index.php">励まし掲示板</a></h1>
         <form action="" method="POST">
             <?php if (count($errors) > 0) : ?>
                 <?php foreach ($errors as $error) : ?>
