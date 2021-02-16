@@ -23,7 +23,7 @@ list($page, $maxPage, $list) = pagiNation($db);
 
 <body>
     <div class="container">
-        <h1 class="mt-3 mb-5"><a class="text-body text-decoration-none" href="index.php">励まし掲示板(仮)</a></h1>
+        <h1 class="text-center mt-3 mb-5"><a class="text-body text-decoration-none" href="index.php">励まし掲示板</a></h1>
         <form action="" method="POST">
             <?php if (count($errors) > 0) : ?>
                 <?php foreach ($errors as $error) : ?>
@@ -58,7 +58,7 @@ list($page, $maxPage, $list) = pagiNation($db);
             <?php endforeach; ?>
         </main>
         <div class="mt-3 mb-5">
-            <a href="?page_id=<?php echo ($page === 1); ?>">最初</a>
+            <a href="?page_id=<?php echo ($page === 1); ?>">&nbsp;最初</a>
             <?php if ($page > 1) : ?>
                 <a href="?page_id=<?php echo ($page - 1); ?>"><?php echo ($page - 1); ?>ページ</a>
             <?php endif; ?>
