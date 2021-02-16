@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = validate($board);
     if (!count($errors)) {
         commentBoard($db, $board);
-        echo '励ましました！一覧でご確認くださいませ!';
+        echo '&nbsp;&nbsp;励ましました！一覧でご確認くださいませ!';
     }
 }
 ?>
