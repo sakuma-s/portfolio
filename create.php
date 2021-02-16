@@ -55,7 +55,7 @@ function pagiNation($db)
     }
     $select->execute();
     $list = $select->fetchAll(PDO::FETCH_ASSOC);
-    return [$maxPage, $page, $list];
+    return [$page, $maxPage, $list];
 }
 //データの削除
 function deleteBoard($db, $id)
