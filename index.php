@@ -28,6 +28,7 @@ list($page, $maxPage, $list) = pagiNation($db);
         <div><img src="images/1535965055.png" class="rounded mx-auto d-block" alt="握手している画像" height="150" width="150"></div>
         <p>弱音を言う、誰かに励まされる。</p>
         <p>励まされた分誰かを励ます。</p>
+        <p>弱音、不安な気持ち、孤独感をテーマに書き込みするサイトです。</p>
         <form action="" method="POST">
             <?php if (count($errors) > 0) : ?>
                 <?php foreach ($errors as $error) : ?>
@@ -39,7 +40,7 @@ list($page, $maxPage, $list) = pagiNation($db);
                 <input type="text" class="form-control" name="nickname" id="nickname">
             </div>
             <div class="mb-2">
-                <label for="message">弱音を書き込んでください。多分誰かが励ましてくれます。</label>
+                <label for="message">書き込んでください。多分誰かが励ましてくれます。</label>
                 <textarea type="text" class="form-control" name="message" id="message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"></textarea>
             </div>
             <div class="mb-3">
