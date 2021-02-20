@@ -24,7 +24,7 @@ list($page, $maxPage, $list) = pagiNation($db);
 <body>
     <div class="container">
         <h1 class="text-center mt-3 mb-5"><a class="text-body text-decoration-none" href="index.php">励まし掲示板</a></h1>
-        <div><img src="images/1535965055.png" alt="握手している画像" height="360" width="360"></div>
+        <div><img src="images/1535965055.png" alt="握手している画像" height="150" width="150"></div>
         <form action="" method="POST">
             <?php if (count($errors) > 0) : ?>
                 <?php foreach ($errors as $error) : ?>
