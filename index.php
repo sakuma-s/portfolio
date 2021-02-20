@@ -25,7 +25,9 @@ list($page, $maxPage, $list) = pagiNation($db);
     <div class="container">
         <h1 class="text-center mt-3 mb-3"><a class="text-body text-decoration-none" href="index.php">励まし掲示板</a></h1>
         <p class="text-center">-誰もが励まし合える場所-</p>
-        <p>弱音を言う、誰かに励まされる。励まされた分誰かを励ます。そんな循環が何処にいても出来たらきっとより良い人生になるのではないかと思いこの場所を作りました。</p>
+        <p>弱音を言う、誰かに励まされる。
+            励まされた分誰かを励ます。そんな循環が何処にいても出来たらきっとより良い人生になるのではないかと思いこの場所を作りました。
+        </p>
         <div><img src="images/1535965055.png" class="rounded mx-auto d-block" alt="握手している画像" height="150" width="150"></div>
         <form action="" method="POST">
             <?php if (count($errors) > 0) : ?>
