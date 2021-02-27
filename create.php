@@ -73,3 +73,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: index.php');
     }
 }
+echo "通信中";
