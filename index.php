@@ -55,14 +55,14 @@ list($page, $maxPage, $list) = pagiNation($db);
                         <div class="card-text">
                             <div><?php echo ($value['id']); ?>&nbsp;<?php echo h($value['nickname']); ?></div>
                             <div><?php echo h($value['message']); ?></div>
-                            <div>
-                                <form action="" id="form1">
-                                    <input id="btn" type="button" name="good_id" value="&#xf164;" class="far fa-thumbs-up">
-                                </form>
-                            </div>
                             <div><a href="reply_message.php?id=<?php echo ($value['id']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
                             <div><a href="?id=<?php echo ($value['id']) ?>">[削除]</a></div>
                             <div><?php echo $value['created']; ?></div>
+                            <div>
+                                <form action="" id="form1">
+                                    <input id="btn" type="button" name="good_id" value="&#xf164;" class="far fa-thumbs-up" form="form1">
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
