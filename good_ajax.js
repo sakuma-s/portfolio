@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('btn').addEventListener('click', function () {
+  document.getElementById('form1').addEventListener('click', function () {
     var result = document.getElementById('result');
     var xhr = new XMLHttpRequest();
     xhr.addEventListener('loadstart', function () {
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
       result.textContent = 'サーバーエラーが発生しました。';
     }, false);
     xhr.open('GET', 'create.php?name=' +
-      encodeURIComponent(document.getElementById('btn').value), true);
+      encodeURIComponent(document.getElementById('form1').value), true);
     xhr.send(null);
   }, false);
 }, false);
