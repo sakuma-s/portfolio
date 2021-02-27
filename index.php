@@ -54,6 +54,11 @@ list($page, $maxPage, $list) = pagiNation($db);
                         <div class="card-text">
                             <div><?php echo ($value['id']); ?>&nbsp;<?php echo h($value['nickname']); ?></div>
                             <div><?php echo h($value['message']); ?></div>
+                            <div>
+                                <form action="" id="form1">
+                                    <input id="btn" type="button" name="good_id" value="&#xf164;" class="far fa-thumbs-up">
+                                </form>
+                            </div>
                             <div><a href="reply_message.php?id=<?php echo ($value['id']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
                             <div><a href="?id=<?php echo ($value['id']) ?>">[削除]</a></div>
                             <div><?php echo $value['created']; ?></div>
@@ -78,7 +83,8 @@ list($page, $maxPage, $list) = pagiNation($db);
             <p class="text-center">&#169; 2021 励まし委員会</p>
         </footer>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    <div id="result"></div>
+    <script type="text/javascript" src="good_ajax.js"></script>
 </body>
 
 </html>
