@@ -60,7 +60,7 @@ list($page, $maxPage, $list) = pagiNation($db);
                             <div><?php echo $value['created']; ?></div>
                             <div>
                                 <form action="" method="POST" id="form1">
-                                    <input type="button" value="&#xf164;" form="form1">
+                                    <i class="far fa-thumbs-up"><input type="button" value="good" form="form1"></i>
                                 </form>
                             </div>
                         </div>
