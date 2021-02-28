@@ -11,8 +11,10 @@ document.addEventListener('DOMContentLoaded', function () {
     xhr.addEventListener('error', function () {
       result.textContent = 'サーバーエラーが発生しました。';
     }, false);
-    xhr.open('GET', 'create.php?name=' +
-      encodeURIComponent(document.getElementById('form1').value), true);
-    xhr.send(null);
+    xhr.open('POST', 'good_ajax_cp.php', true);
+    xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+    xhr.send('value=' + encodeURIComponent(document.getElementById('form1').value));
+    //変数自体が存在するか確認
+    console.log(typeof value === 'undefined');
   }, false);
 }, false);
