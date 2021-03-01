@@ -3,6 +3,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require 'escape.php';
+$board['nickname'] = "";
+$board['message'] = "";
 $_GET['id'] = filter_input(INPUT_GET, 'id');
 $id = $_GET['id'];
 $_GET['page_id'] = filter_input(INPUT_GET, 'page_id');
