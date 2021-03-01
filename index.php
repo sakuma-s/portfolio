@@ -59,7 +59,7 @@ list($page, $maxPage, $list) = pagiNation($db);
                             <div><a href="?id=<?php echo ($value['id']) ?>">[削除]</a></div>
                             <div><?php echo $value['created']; ?></div>
                             <div>
-                                <i class="far fa-thumbs-up"><input id="btn" data-posts-id="<?php echo ($value['id']); ?>" type="button" name="good" value="good"></i>
+                                <i class="far fa-thumbs-up"><input id="btn" data-postid="<?php echo ($value['id']); ?>" type="button" name="good" value="good"></i>
                             </div>
                         </div>
                     </div>
