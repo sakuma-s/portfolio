@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('form1').addEventListener('click', function () {
+  document.getElementById('btn').addEventListener('click', function () {
     var result = document.getElementById('result');
     var xhr = new XMLHttpRequest();
     xhr.addEventListener('loadstart', function () {
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }, false);
     xhr.open('POST', 'create.php', true);
     xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
-    xhr.send('value=' + encodeURIComponent(document.getElementById('form1').value));
+    xhr.send('value=' + encodeURIComponent(document.getElementById('btn').value));
     //変数自体が存在するか確認
     console.log(typeof value === 'undefined');
   }, false);
