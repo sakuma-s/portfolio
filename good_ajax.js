@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }, false);
       xhr.open('POST', 'create.php', true);
       xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
-      xhr.send('value=' + encodeURIComponent(document.getElementById('btn').value));
+      xhr.send('value=' + encodeURIComponent(document.getElementsByClassName('good').value));
       //変数自体が存在するか確認
       console.log(typeof value === 'undefined');
     }, false);
