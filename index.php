@@ -19,12 +19,12 @@ list($page, $maxPage, $list) = pagiNation($db);
     <meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <title>励まし掲示板</title>
+    <title>励まし会議</title>
 </head>
 
 <body>
     <div class="container">
-        <h1 class="text-center mt-3 mb-3"><a class="text-body text-decoration-none" href="index.php">励まし掲示板</a></h1>
+        <h1 class="text-center mt-3 mb-3"><a class="text-body text-decoration-none" href="index.php">励まし会議</a></h1>
         <p class="text-center">-誰もが励まし合える場所-</p>
         <div><img src="images/1535965055.png" class="rounded mx-auto d-block" alt="握手している画像" height="150" width="150"></div>
         <p>弱音を言う、誰かに励まされる。</p>
