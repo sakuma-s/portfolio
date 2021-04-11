@@ -39,12 +39,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <title>励まし掲示板</title>
+    <title>励まし会議</title>
 </head>
 
 <body>
     <div class="container">
-        <h1 class="text-center mt-3 mb-5"><a class="text-body text-decoration-none" href="index.php">励まし掲示板</a></h1>
+        <h1 class="text-center mt-3 mb-5"><a class="text-body text-decoration-none" href="index.php">励まし会議</a></h1>
         <form action="" method="POST">
             <?php if (count($errors) > 0) : ?>
                 <?php foreach ($errors as $error) : ?>
