@@ -10,6 +10,7 @@ $db = connect();
 createBoard($db, $board);
 deleteBoard($db, $id);
 list($page, $maxPage, $list) = pagiNation($db);
+print($_REQUEST['value']);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
