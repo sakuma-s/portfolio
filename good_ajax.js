@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
   var good = document.getElementsByClassName('good');
+  console.log(defaultValue);//最初からある値
   console.dir(good);
   for (var i = 0; i < good.length; i++) {
     good[i].addEventListener('click', function () {
