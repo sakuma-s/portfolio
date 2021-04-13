@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // var good = document.getElementsByClassName('good');
-  // console.dir(good);
-  var good = document.getElementsByClassName('good')[0];
-  console.log(good);
+  var good = document.getElementsByClassName('good');
+  console.dir(good);
+  // var good = document.getElementsByClassName('good')[0];
+  // console.log(good);
   for (var i = 0; i < good.length; i++) {
     good[i].addEventListener('click', function () {
       var result = document.getElementById('result');
