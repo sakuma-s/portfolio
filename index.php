@@ -60,8 +60,10 @@ list($page, $maxPage, $list) = pagiNation($db);
                             <div><a href="reply_message.php?id=<?php echo ($value['id']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
                             <div><a href="?id=<?php echo ($value['id']) ?>">[削除]</a></div>
                             <div><?php echo $value['created']; ?></div>
-                            <i class="far fa-thumbs-up"><input class="good" type="button" name="good" value="good"></i>
-                            <div id="result"></div>
+                            <i class="far fa-thumbs-up"><input class="good" type="button" name="good" value="good">
+                                <div id="result">
+                                </div>
+                            </i>
                         </div>
                     </div>
                 </div>
