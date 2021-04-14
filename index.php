@@ -61,6 +61,7 @@ list($page, $maxPage, $list) = pagiNation($db);
                             <div><a href="?id=<?php echo ($value['id']) ?>">[削除]</a></div>
                             <div><?php echo $value['created']; ?></div>
                             <i class="far fa-thumbs-up"><input class="good" type="button" name="good" value="good"></i>
+                            <div id="result"></div>
                         </div>
                     </div>
                 </div>
@@ -82,7 +83,6 @@ list($page, $maxPage, $list) = pagiNation($db);
             <p class="text-center">&#169; 2021 励まし委員会</p>
         </footer>
     </div>
-    <div id="result"></div>
     <script type="text/javascript" src="good_ajax.js"></script>
 </body>
 
