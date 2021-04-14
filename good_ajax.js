@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
   var good = document.getElementsByClassName('good');
   console.dir(good);
-  // var good = document.getElementsByClassName('good')[0];
-  // console.log(good);
   for (var i = 0; i < good.length; i++) {
+    //全てのgoodボタンにajaxを適用させる
     good[i].addEventListener('click', function () {
       var result = document.getElementById('result');
       var xhr = new XMLHttpRequest();
@@ -20,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
       };
       xhr.open('POST', 'create.php', true);
       xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
-      xhr.send('value=' + encodeURIComponent(document.getElementsByClassName('good').value));
+      xhr.send('name=' + encodeURIComponent(document.getElementsByClassName('good').value));//未定義のままになってしまう
       //変数自体が存在するか確認
       console.log(typeof value === 'undefined');
     }, false);
