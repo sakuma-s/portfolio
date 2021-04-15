@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
           result.textContent = 'サーバーエラーが発生しました。';
         }, false);
       };
-      xhr.open('POST', 'create.php', true);
+      xhr.open('POST', 'good_ajax.php', true);
       xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
       xhr.send('name=' + encodeURIComponent(document.getElementsByClassName('good')[0].value));
       //値自体が存在するか確認
