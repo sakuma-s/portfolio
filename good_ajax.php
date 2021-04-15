@@ -5,7 +5,7 @@ print($_REQUEST['name']);
 //データ登録
 function goodButton($db, $board)
 {
-    $statement = $db->prepare('INSERT INTO good SET good=?');
+    $statement = $db->prepare('INSERT INTO good SET good_id=?');
     $statement->execute(array($board['good']));
 }
 
