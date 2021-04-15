@@ -8,13 +8,13 @@ print_r($_POST);
 function goodButton($db, $board)
 {
     $statement = $db->prepare('INSERT INTO good SET good_id=?');
-    $statement->execute(array($board['good']));
+    $statement->execute(array($board['name']));
 }
 
 //データ受け取り
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $board = [
-        'good' => $_POST['good']
+        'name' => $_POST['good']
     ];
 }
 
