@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', function () {
       };
       xhr.open('POST', 'create.php', true);
       xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
-      xhr.send('name=' + encodeURIComponent(document.getElementsByClassName('good')[0].value));//未定義のままになってしまう
-      //変数自体が存在するか確認
+      xhr.send('name=' + encodeURIComponent(document.getElementsByClassName('good')[0].value));
+      //値自体が存在するか確認
       console.log(typeof value === 'undefined');
     }, false);
   }
