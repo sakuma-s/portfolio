@@ -4,7 +4,6 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require 'connect.php';
 $errors = [];
-//投稿へのコメント
 function commentBoard($db, $board)
 {
     if (!empty($board['reply_message']) && (iconv_strlen($board['reply_message']) >= 7)) {
