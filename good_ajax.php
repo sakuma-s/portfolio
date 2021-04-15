@@ -2,6 +2,7 @@
 require 'connect.php';
 sleep(3);
 print($_REQUEST['name']);
+var_dump($_SERVER['REQUEST_METHOD']);
 //データ登録
 function goodButton($db, $board)
 {
