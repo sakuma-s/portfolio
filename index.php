@@ -10,7 +10,6 @@ require_once('good_ajax.php');
 $db = connect();
 createBoard($db, $board);
 deleteBoard($db, $id);
-goodButton($db, $good);
 list($page, $maxPage, $list) = pagiNation($db);
 ?>
 <!DOCTYPE html>
