@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 // require 'connect.php';
 sleep(3);
 print($_REQUEST['name']);
+$_POST['name'] = filter_input(INPUT_POST, 'name');
 $good = $_POST['name'];
 //データ登録
 function goodButton($db, $good)
