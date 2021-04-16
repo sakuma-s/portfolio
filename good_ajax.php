@@ -5,19 +5,20 @@ error_reporting(E_ALL);
 require 'connect.php';
 sleep(3);
 print($_REQUEST['name']);
-print_r($_POST['name']);
+$good = $_POST['name'];
 //データ登録
-function goodButton($db, $board)
+function goodButton($db, $good)
 {
     $statement = $db->prepare('INSERT INTO good SET good_id=?');
-    $statement->execute(array($board['name']));
+    $statement->execute(array($good));
 }
 
 //データ受け取り
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $board = [
-        'name' => $_POST['name']
-    ];
-}
+//今の所必要ない？
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//     $board = [
+//         'name' => $_POST['name']
+//     ];
+// }
 
 //データ表示(index.phpに記入)
