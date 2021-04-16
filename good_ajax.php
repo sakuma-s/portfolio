@@ -17,7 +17,7 @@ function goodButton($db, $board)
 //データ受け取り
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $board = [
-        'good' => $_POST['good']
+        'good' => $_POST['name']
     ];
 }
 
