@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-require 'connect.php';
+// require 'connect.php';
 sleep(3);
 print($_REQUEST['name']);
 $good = $_POST['name'];
