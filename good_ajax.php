@@ -3,11 +3,11 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 // require 'connect.php';
-sleep(3);
-print($_REQUEST['name']);
+//sleep(3);
+//print($_REQUEST['name']);
 $_POST['name'] = filter_input(INPUT_POST, 'name');
 $good = $_POST['name'];
-var_dump($good);
+//var_dump($good); //NULLと表示される。ボタンを押すとgoodが表示される。
 //データ登録
 function goodButton($db, $good)
 {
