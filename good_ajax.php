@@ -7,6 +7,7 @@ sleep(3);
 print($_REQUEST['name']);
 $_POST['name'] = filter_input(INPUT_POST, 'name');
 $good = $_POST['name'];
+var_dump($good);
 //データ登録
 function goodButton($db, $good)
 {
