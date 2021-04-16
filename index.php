@@ -8,8 +8,8 @@ require_once('connect.php');
 require_once('create.php');
 $db = connect();
 createBoard($db, $board);
-goodButton($db, $good);
 deleteBoard($db, $id);
+goodButton($db, $good);
 list($page, $maxPage, $list) = pagiNation($db);
 ?>
 <!DOCTYPE html>
