@@ -9,7 +9,6 @@ $_GET['id'] = filter_input(INPUT_GET, 'id');
 $id = $_GET['id'];
 $_GET['page_id'] = filter_input(INPUT_GET, 'page_id');
 $_REQUEST['name'] = filter_input(INPUT_POST, 'name');
-print_r($_POST);
 //データ登録
 function createBoard($db, $board)
 {
