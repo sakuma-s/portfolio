@@ -11,12 +11,7 @@ $good = $_POST['name'];
 function goodButton($db, $good)
 {
     $statement = $db->prepare('INSERT INTO good SET good_id=?');
-    $check = $statement->execute(array($good));
-    if ($check) {
-        print '成功';
-    } else {
-        print '失敗';
-    }
+    $statement->execute(array($good));
 }
 
 //データ受け取り
