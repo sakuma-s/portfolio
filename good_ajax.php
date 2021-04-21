@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 $_POST['name'] = filter_input(INPUT_POST, 'name');
-print('jsデータ送信確認' . $_POST['name'] . 'です');
+print($_POST['name']);
 $good = $_POST['name'];
 //データ登録
 function goodButton($db, $good)
