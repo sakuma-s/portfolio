@@ -5,9 +5,10 @@ error_reporting(E_ALL);
 // require 'connect.php';
 //sleep(3);
 //print($_REQUEST['name']);
-$_POST['name'] = filter_input(INPUT_POST, 'name');
-print('jsデータ送信確認' . $_POST['name'] . 'です');
-var_dump($_POST['name']);
+// $_POST['name'] = filter_input(INPUT_POST, 'name');
+// print('jsデータ送信確認' . $_POST['name'] . 'です');
+// var_dump($_POST['name']);//表示確認OK
+
 //var_dump($good); //NULLと表示される。ボタンを押すとgoodが表示される。
 //データ登録
 function goodButton($db, $good)
