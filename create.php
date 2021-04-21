@@ -8,7 +8,7 @@ $_POST['message'] = filter_input(INPUT_POST, 'message');
 $_GET['id'] = filter_input(INPUT_GET, 'id');
 $id = $_GET['id'];
 $_GET['page_id'] = filter_input(INPUT_GET, 'page_id');
-$_REQUEST['name'] = filter_input(INPUT_POST, 'name');
+//$_REQUEST['name'] = filter_input(INPUT_POST, 'name');
 //データ登録
 function createBoard($db, $board)
 {
