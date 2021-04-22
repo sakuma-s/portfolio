@@ -7,6 +7,8 @@ $_POST['nickname'] = filter_input(INPUT_POST, 'nickname');
 $_POST['message'] = filter_input(INPUT_POST, 'message');
 $_GET['id'] = filter_input(INPUT_GET, 'id');
 $id = $_GET['id'];
+var_dump($id);
+echo $id;
 $_GET['page_id'] = filter_input(INPUT_GET, 'page_id');
 //$_REQUEST['name'] = filter_input(INPUT_POST, 'name');
 //データ登録
