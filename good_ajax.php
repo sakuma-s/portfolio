@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 $_POST['name'] = filter_input(INPUT_POST, 'name');
 print($_POST['name']);
 $good = $_POST['name'];
+echo $good;
 //データ登録
 function goodButton($db, $good)
 {
