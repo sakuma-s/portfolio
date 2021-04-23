@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="reply_message">励ましの言葉をお願いいたします</label>
             </div>
             <div class="mb-2">
-                <textarea type="text" class="form-control" name="reply_message" id="reply_message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"><?php echo $_REQUEST['id']; ?>&nbsp;&nbsp;</textarea>
+                <textarea type="text" class="form-control" name="reply_message" id="reply_message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"><?php echo $_REQUEST['posts_id']; ?>&nbsp;&nbsp;</textarea>
             </div>
             <button type="submit" class="btn btn-secondary">投稿</button>
             <a class="btn btn-primary" href="index.php" role="button">一覧へ</a>

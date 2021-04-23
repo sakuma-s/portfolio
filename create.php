@@ -5,10 +5,10 @@ error_reporting(E_ALL);
 require 'escape.php';
 $_POST['nickname'] = filter_input(INPUT_POST, 'nickname');
 $_POST['message'] = filter_input(INPUT_POST, 'message');
-$_GET['id'] = filter_input(INPUT_GET, 'id');
-$id = $_GET['id'];
-var_dump($id) . "idの値";
-echo $id . "idの値";
+$_GET['posts_id'] = filter_input(INPUT_GET, 'posts_id');
+$posts_id = $_GET['posts_id'];
+var_dump($posts_id) . "posts_idの値";
+echo $posts_id . "posts_idの値";
 $_GET['page_id'] = filter_input(INPUT_GET, 'page_id');
 //$_REQUEST['name'] = filter_input(INPUT_POST, 'name');
 //データ登録
@@ -49,7 +49,7 @@ function pagiNation($db)
     $page = max($page, 1);
     $page = min($page, $maxPage);
     //表示する記事の取得
-    $select = $db->prepare("SELECT * FROM posts ORDER BY id DESC LIMIT :start,:max ");
+    $select = $db->prepare("SELECT * FROM posts ORDER BY posts_id DESC LIMIT :start,:max ");
     //1ページ目の処理
     if ($page === 1) {
         $select->bindValue(":start", $page - 1, PDO::PARAM_INT);
@@ -63,10 +63,10 @@ function pagiNation($db)
     return [$page, $maxPage, $list];
 }
 //データの削除
-function deleteBoard($db, $id)
+function deleteBoard($db, $posts_id)
 {
-    $statement = $db->prepare('DELETE FROM posts WHERE id=?');
-    $statement->execute(array($id));
+    $statement = $db->prepare('DELETE FROM posts WHERE posts_id=?');
+    $statement->execute(array($posts_id));
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $board = [

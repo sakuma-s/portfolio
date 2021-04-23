@@ -9,7 +9,7 @@ require_once('create.php');
 require_once('good_ajax.php');
 $db = connect();
 createBoard($db, $board);
-deleteBoard($db, $id);
+deleteBoard($db, $posts_id);
 goodButton($db, $good);
 list($page, $maxPage, $list) = pagiNation($db);
 ?>
@@ -57,10 +57,10 @@ list($page, $maxPage, $list) = pagiNation($db);
                 <div class="card">
                     <div class="card-body">
                         <div class="card-text">
-                            <div><?php echo ($value['id']); ?>&nbsp;<?php echo h($value['nickname']); ?></div>
+                            <div><?php echo ($value['posts_id']); ?>&nbsp;<?php echo h($value['nickname']); ?></div>
                             <div><?php echo h($value['message']); ?></div>
-                            <div><a href="reply_message.php?id=<?php echo ($value['id']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
-                            <div><a href="?id=<?php echo ($value['id']) ?>">[削除]</a></div>
+                            <div><a href="reply_message.php?posts_id=<?php echo ($value['posts_id']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
+                            <div><a href="?posts_id=<?php echo ($value['posts_id']) ?>">[削除]</a></div>
                             <div><?php echo $value['created']; ?></div>
                             <i class="far fa-thumbs-up"><input class="good" type="button" name="good" value="good">
                             </i>
