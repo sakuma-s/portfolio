@@ -8,8 +8,9 @@ CREATE TABLE posts (
 )
 
 CREATE TABLE good (
-  id int NOT NULL AUTO_INCRIMENT,
-  good_id int NOT NULL,
+  id int(11) NOT NULL AUTO_INCRIMENT,
+  good_id int(11) NOT NULL,
+  posts_id int(11) NOT NULL,
   PRIMARY KEY ('id'),
   CONSTRAINT posts_id FOREIGN KEY id ON DELETE CASCADE ON UPDATE CASCADE
 )
