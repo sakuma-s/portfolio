@@ -7,10 +7,7 @@ $_POST['nickname'] = filter_input(INPUT_POST, 'nickname');
 $_POST['message'] = filter_input(INPUT_POST, 'message');
 $_GET['posts_id'] = filter_input(INPUT_GET, 'posts_id');
 $posts_id = $_GET['posts_id'];
-var_dump($posts_id) . "posts_idの値";
-echo $posts_id . "posts_idの値";
 $_GET['page_id'] = filter_input(INPUT_GET, 'page_id');
-//$_REQUEST['name'] = filter_input(INPUT_POST, 'name');
 //データ登録
 function createBoard($db, $board)
 {
