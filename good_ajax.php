@@ -11,6 +11,6 @@ echo $good . "goodの値";
 function goodButton($db, $good)
 {
     $statement = $db->prepare('INSERT INTO good SET good_id=?');
-    $statement->execute($good);
+    $statement->execute([$good]);
 }
 //取得しカウントした値を(index.phpに表示)
