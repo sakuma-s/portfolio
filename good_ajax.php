@@ -10,6 +10,7 @@ echo $good . "goodの値";
 //データ登録
 function goodButton($db, $good)
 {
+    $good = $_POST['name'];
     $statement = $db->prepare('INSERT INTO good SET good_id=?');
     $statement->bindValue(1, $good);
     $statement->execute();
