@@ -11,6 +11,7 @@ echo $good . "goodの値";
 function goodButton($db, $good)
 {
     $good = $_POST['name'];
+    echo $good . "goodの値" . "2";
     $statement = $db->prepare('INSERT INTO good SET good_id=?');
     $statement->bindValue(1, $good);
     $statement->execute();
