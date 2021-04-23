@@ -11,7 +11,7 @@ echo $good . "goodの値";
 function goodButton($db)
 {
     $statement = $db->prepare('INSERT INTO good SET good_id=?');
-    $statement->bindValue(':good_id', $_POST['name']);
+    $statement->bindValue(1, $_POST['name']);
     $statement->execute();
 }
 //取得しカウントした値を(index.phpに表示)
