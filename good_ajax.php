@@ -15,14 +15,14 @@ function goodButton($db, $good)
 {
     // $good = $_POST['name']; //取得できてい
     // echo $good . "goodの値" . "2"; //値が表示されない。↓NULLで登録されてしまう
-    if (isset($good['good'])) {
+    if (isset($good)) {
         $statement = $db->prepare('INSERT INTO good SET good_id=?');
-        $statement->bindValue(1, $good['good']);
-        $statement->execute(array($good['good']));
+        $statement->bindValue(1, $good);
+        $statement->execute();
     }
 }
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $good = [
-        'good' => $_POST['name']
-    ];
-}
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//     $good = [
+//         'good' => $_POST['name']
+//     ];
+// }
