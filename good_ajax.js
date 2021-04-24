@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
       xhr.send('name=' + encodeURIComponent(document.getElementsByClassName('good')[0].value));
       //値自体が存在するか確認
       console.log(typeof value === 'undefined');
-      console.log(data);
+      //console.log(data);
     }, false);
   }
 }, false);
