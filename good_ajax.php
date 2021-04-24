@@ -4,8 +4,8 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 $_POST['name'] = filter_input(INPUT_POST, 'name');
 // $good = $_POST['name'];
-var_dump($_POST['name']); //NULLになる?
-var_dump($good['good']);
+var_dump($_POST['name']); //NULL
+var_dump($good['good']); //NULL
 echo ($_POST['name']);
 
 // echo $good . "goodの値"; //最初値がNULL。goodButtonを押すと、buttonの下に値が表示される。
@@ -17,7 +17,7 @@ function goodButton($db, $good)
     if (isset($good['good'])) {
         $statement = $db->prepare('INSERT INTO good SET good_id=?');
         $statement->bindValue(1, $good['good']);
-        $statement->execute();
+        $statement->execute(array($good['good']));
     }
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
