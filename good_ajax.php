@@ -7,7 +7,7 @@ $good = filter_input(INPUT_POST, 'name');
 var_dump($good); //最初はNULL→ボタンを押すとgood
 // var_dump($_POST['name']); //NULL
 // var_dump($good['good']); //NULL
-echo ($good);
+echo ($good) . PHP_EOL;
 
 // echo $good . "goodの値"; //最初値がNULL。goodButtonを押すと、buttonの下に値が表示される。
 //データ登録
