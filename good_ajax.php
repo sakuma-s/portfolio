@@ -2,10 +2,11 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-$_POST['name'] = filter_input(INPUT_POST, 'name');
+$good = filter_input(INPUT_POST, 'name');
 // $good = $_POST['name'];
-var_dump($_POST['name']); //NULL
-var_dump($good['good']); //NULL
+var_dump($good);
+// var_dump($_POST['name']); //NULL
+// var_dump($good['good']); //NULL
 echo ($_POST['name']);
 
 // echo $good . "goodの値"; //最初値がNULL。goodButtonを押すと、buttonの下に値が表示される。
