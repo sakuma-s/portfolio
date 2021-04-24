@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
   console.dir(good);
   for (var i = 0; i < good.length; i++) {
     //全てのgoodボタンにajaxを適用させる
-    good[0].addEventListener('click', function () {
-      var result = document.getElementById('result');
+    good[i].addEventListener('click', function () {
+      var result = document.getElementsByClassName('result');
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = function () {
         xhr.addEventListener('loadstart', function () {
