@@ -5,14 +5,20 @@ error_reporting(E_ALL);
 $_POST['name'] = filter_input(INPUT_POST, 'name');
 $good = $_POST['name'];
 // var_dump($good) . "goodの値";
-echo $good . "goodの値";
+echo $good . "goodの値"; //最初値がNULL。goodButtonを押すと
 //データ登録
 function goodButton($db, $good)
 {
-    $good = $_POST['name'];
-    echo $good . "goodの値" . "2"; //値が表示されない
-    $statement = $db->prepare('INSERT INTO good SET good_id=?');
-    $statement->bindValue(1, $good);
-    $statement->execute();
+    // $good = $_POST['name']; //取得できてい
+    // echo $good . "goodの値" . "2"; //値が表示されない。↓NULLで登録されてしまう
+    if (!is_null($good['good'])) {
+        $statement = $db->prepare('INSERT INTO good SET good_id=?');
+        $statement->bindValue(1, $good['good']);
+        $statement->execute();
+    }
 }
-//取得しカウントした値を(index.phpに表示)
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $good = [
+        'good' => $_POST['name']
+    ];
+}
