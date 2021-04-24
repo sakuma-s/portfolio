@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
       };
       xhr.open('POST', 'good_ajax.php', true);
       xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
-      xhr.send('name=' + encodeURIComponent(document.getElementsByClassName('good')[i].value));
+      xhr.send('name=' + encodeURIComponent(document.getElementsByClassName('good').value));
       //値自体が存在するか確認
       console.log(typeof value === 'undefined');
       //console.log(data);
