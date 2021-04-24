@@ -4,9 +4,9 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 $_POST['name'] = filter_input(INPUT_POST, 'name');
 // $good = $_POST['name'];
-// var_dump($good) . "goodの値";
+var_dump($_POST['name']);
 echo ($_POST['name']);
-echo $good . "goodの値"; //最初値がNULL。goodButtonを押すと、buttonの下に値が表示される。
+// echo $good . "goodの値"; //最初値がNULL。goodButtonを押すと、buttonの下に値が表示される。
 //データ登録
 function goodButton($db, $good)
 {
