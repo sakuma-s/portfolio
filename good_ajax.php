@@ -2,6 +2,8 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+require_once('connect.php');
+$db = connect();
 $good = filter_input(INPUT_POST, 'name');
 // $good = $_POST['name'];
 var_dump($good); //最初はNULL→ボタンを押すとgood
