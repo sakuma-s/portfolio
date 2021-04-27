@@ -47,7 +47,7 @@ list($page, $maxPage, $list) = pagiNation($db);
             </div>
             <div class="mb-2">
                 <label for="message">書き込んでください。多分誰かが励ましてくれます。</label>
-                <textarea type="text" class="form-control" name="message" id="message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"></textarea>
+                <textarea class="form-control" name="message" id="message" placeholder="140字までになります" maxlength="140" rows="6" cols="50"></textarea>
             </div>
             <div class="mb-3">
                 <button type="submit" class="btn btn-secondary">投稿</button>
