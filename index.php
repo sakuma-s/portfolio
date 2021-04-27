@@ -87,7 +87,7 @@ list($page, $maxPage, $list) = pagiNation($db);
             <p class="text-center">&#169; 2021 励まし委員会</p>
         </footer>
     </div>
-    <script type="text/javascript" src="good_ajax.js"></script>
+    <script src="good_ajax.js"></script>
 </body>
 
 </html>
