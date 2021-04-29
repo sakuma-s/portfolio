@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
   for (var i = 0; i < good.length; i++) {
     //全てのgoodボタンにajaxを適用させる
     good[i].addEventListener('click', function () {
-      var result = document.getElementsByClassName('result');
+      var result = document.getElementById('result');
       var xhr = new XMLHttpRequest();
       xhr.onreadystatechange = function () {
         xhr.addEventListener('loadstart', function () {
