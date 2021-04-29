@@ -7,7 +7,7 @@ $db = connect();
 $good = filter_input(INPUT_POST, 'name');
 echo ($good); //最初はNULL→ボタンを押すとgood
 sleep(2);
-var_export($good);
+echo var_export($good);
 //データ登録
 if (isset($good)) {
     $statement = $db->prepare('INSERT INTO good SET good_id=?');
