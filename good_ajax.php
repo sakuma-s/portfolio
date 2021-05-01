@@ -11,7 +11,7 @@ echo ($posts_id);
 sleep(2);
 echo var_export($good);
 //データ登録
-if (isset($good)) {
+if (isset($good, $posts_id)) {
     $statement = $db->prepare('INSERT INTO good SET good_id=? posts_id=?');
     $statement->bindValue(1, $good);
     $statement->bindValue(2, $posts_id);
