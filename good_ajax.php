@@ -14,5 +14,6 @@ echo var_export($good);
 if (isset($good)) {
     $statement = $db->prepare('INSERT INTO good SET good_id=? posts_id=?');
     $statement->bindValue(1, $good);
+    $statement->bindValue(2, $posts_id);
     $statement->execute();
 }
