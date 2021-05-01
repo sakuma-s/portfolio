@@ -5,12 +5,10 @@ error_reporting(E_ALL);
 require_once('connect.php');
 $db = connect();
 $good = filter_input(INPUT_POST, 'name');
-echo ($good); //最初はNULL→ボタンを押すとgood
 $posts_id = filter_input(INPUT_POST, 'data-posts_id');
-// echo ($posts_id);
 sleep(2);
 var_dump($posts_id); //NULLになる
-echo var_export($good);
+var_export($good);
 //データ登録
 if (isset($good, $posts_id)) {
     $statement = $db->prepare('INSERT INTO good SET good_id=? posts_id=?');
