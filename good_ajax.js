@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     good[i].addEventListener('click', function () {
       var result = document.getElementById('result');
       var xhr = new XMLHttpRequest();
+      console.log(good);
       xhr.onreadystatechange = function () {
         xhr.addEventListener('loadstart', function () {
           result.textContent = '通信中...';
