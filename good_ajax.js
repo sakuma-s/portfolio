@@ -3,10 +3,11 @@ document.addEventListener('DOMContentLoaded', function () {
   console.dir(good);
   for (var i = 0; i < good.length; i++) {
     //全てのgoodボタンにajaxを適用させる
-    good[i].addEventListener('click', function () {
+    good[i].onclick = function () {
+      console.log("click", this);
       var result = document.getElementById('result');
       var xhr = new XMLHttpRequest();
-      console.log(good);
+      // console.log(good);
       xhr.onreadystatechange = function () {
         xhr.addEventListener('loadstart', function () {
           result.textContent = '通信中...';
