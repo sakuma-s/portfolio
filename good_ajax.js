@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
     //全てのgoodボタンにajaxを適用させる
     good[i].onclick = function () {
       console.log("click", this);
-      this.postId = this.getAttribute('data-posts_id');
-      console.log(this.postId);
+      goodPostId = this.getAttribute('data-posts_id');
+      console.log(goodPostId);
       var result = document.getElementById('result');
       var xhr = new XMLHttpRequest();
       // console.log(good);
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
       };
       xhr.open('POST', 'good_ajax.php', true);
       xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
-      xhr.send('name=' + encodeURIComponent(document.getElementsByClassName('good')[0].value));
+      xhr.send('name=' + encodeURIComponent(document.getElementsByClassName('good')[0].value) & 'data-posts_id=' + encodeURIComponent(goodPostId));
       //値自体が存在するか確認
       console.log(typeof value === 'undefined');
       //console.log(data);
