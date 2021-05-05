@@ -30,3 +30,4 @@ document.addEventListener('DOMContentLoaded', function () {
     };
   }
 }, false);
+//'name=' + encodeURIComponent(document.getElementsByClassName('good')[0].value)
