@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
     //全てのgoodボタンにajaxを適用させる
     good[i].onclick = function () {
       console.log("click", this);
+      this.postId = this.getAttribute('data-post_id');
+      console.log(this.postId);
       var result = document.getElementById('result');
       var xhr = new XMLHttpRequest();
       // console.log(good);
