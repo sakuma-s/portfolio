@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function () {
       xhr.open('POST', 'good_ajax.php', true);
       xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
       xhr.send('data-posts_id=' + encodeURIComponent(goodPostId), true);
-      xhr.send('name=' + encodeURIComponent(document.getElementsByClassName('good')[0].value), true);
       //値自体が存在するか確認
       console.log(typeof value === 'undefined');
       //console.log(data);
@@ -32,3 +31,4 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 }, false);
 //'name=' + encodeURIComponent(document.getElementsByClassName('good')[0].value)
+//'data-posts_id=' + encodeURIComponent(goodPostId),
