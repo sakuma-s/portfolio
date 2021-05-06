@@ -11,8 +11,8 @@ var_dump($posts_id); //NULLになる
 var_export($good);
 //データ登録
 if (isset($posts_id)) {
-    $query = "UPDATE goo SET good_id = good_id + 1 WHERE posts_id = ?";
+    $query = "UPDATE good SET good_id = good_id + 1 WHERE posts_id = :posts_id";
     $statement = $db->prepare($query);
-    $statement->bindValue(1, $posts_id);
+    $statement->bindParam(":posts_id", $posts_id);
     $statement->execute();
 }
