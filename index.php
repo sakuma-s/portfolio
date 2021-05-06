@@ -6,11 +6,10 @@ $errors = [];
 $board = [];
 require_once('connect.php');
 require_once('create.php');
-// require_once('good_ajax.php');
+require_once('good_ajax.php');
 $db = connect();
 createBoard($db, $board);
 deleteBoard($db, $posts_id);
-//goodButton($db, $good);
 list($page, $maxPage, $list) = pagiNation($db);
 ?>
 <!DOCTYPE html>
