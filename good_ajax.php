@@ -11,7 +11,7 @@ var_dump($posts_id); //NULLになる
 var_export($good);
 //データ登録
 if (isset($posts_id)) {
-    $query = "INSERT INTO good SET good_id = good_id + 1 posts_id = ?";
+    $query = "INSERT INTO good SET posts_id = ?";
     $statement = $db->prepare($query);
     $statement->bindValue(1, $posts_id);
     $statement->execute();
