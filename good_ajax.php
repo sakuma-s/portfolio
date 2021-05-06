@@ -10,9 +10,9 @@ sleep(2);
 var_dump($posts_id); //NULLになる
 var_export($good);
 //データ登録
-if (isset($good, $posts_id)) {
-    $statement = $db->prepare('INSERT INTO good SET good_id=? posts_id=?');
-    $statement->bindValue(1, $good);
-    $statement->bindValue(2, $posts_id);
+if (isset($posts_id)) {
+    $query = "UPDATE good SET good_id = good_id + 1 WHERE posts_id = ?";
+    $statement = $db->prepare($query);
+    $statement->bindValue(1, $posts_id);
     $statement->execute();
 }
