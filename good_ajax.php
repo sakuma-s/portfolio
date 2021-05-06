@@ -16,3 +16,9 @@ if (isset($posts_id)) {
     $statement->bindValue(1, $posts_id);
     $statement->execute();
 }
+//データ取得
+$query = "SELECT good_id FROM good WHERE posts_id = ?";
+$select = $db->prepare($query);
+$select->bindValue(1, $posts_id);
+$select->execute();
+$goodList = $select->fetchAll(PDO::FETCH_COLUMN);//指定の１つのカラムを取得
