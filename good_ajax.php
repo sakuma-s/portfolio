@@ -16,3 +16,10 @@ if (isset($posts_id)) {
     $statement->bindValue(1, $posts_id);
     $statement->execute();
 }
+//カウントアップ
+if (isset($posts_id)) {
+    $query = "UPDATE good SET good_id = good_id + 1 WHERE posts_id = ?";
+    $statement = $db->prepare($query);
+    $statement->bindValue(1, $posts_id);
+    $statement->execute();
+}
