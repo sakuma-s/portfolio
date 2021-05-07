@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 $errors = [];
 $board = [];
-$goodList = [];
+// $goodList = [];設置してからボタンが表示されなくなった
 require_once('connect.php');
 require_once('create.php');
 $db = connect();
