@@ -12,6 +12,7 @@ require_once('good_ajax.php');
 createBoard($db, $board);
 deleteBoard($db, $posts_id);
 list($page, $maxPage, $list) = pagiNation($db);
+var_dump($goodList);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
