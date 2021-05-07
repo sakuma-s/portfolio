@@ -17,10 +17,14 @@ if (isset($posts_id)) {
     $statement->execute();
 }
 //データ取得
-if (isset($posts_id)) {
-    $query = "SELECT good_id FROM good WHERE posts_id = ?";
-    $select = $db->prepare($query);
-    $select->bindValue(1, $posts_id);
-    $select->execute();
-    $goodList = $select->fetchAll(PDO::FETCH_ASSOC); //指定の１つのカラムを取得
+function goodCount($db)
+{
+    if (isset($posts_id)) {
+        $query = "SELECT good_id FROM good WHERE posts_id = ?";
+        $select = $db->prepare($query);
+        $select->bindValue(1, $posts_id);
+        $select->execute();
+        $goodList = $select->fetchAll(PDO::FETCH_ASSOC); //指定の１つのカラムを取得
+        return $goodList;
+    }
 }
