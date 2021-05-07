@@ -4,7 +4,6 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 $errors = [];
 $board = [];
-$goodList = "";
 require_once('connect.php');
 require_once('create.php');
 $db = connect();
