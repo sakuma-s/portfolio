@@ -9,6 +9,7 @@ require_once('connect.php');
 require_once('create.php');
 $db = connect();
 require_once('good_ajax.php');
+$goodList = goodCount($db);
 createBoard($db, $board);
 deleteBoard($db, $posts_id);
 list($page, $maxPage, $list) = pagiNation($db);
