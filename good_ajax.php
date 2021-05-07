@@ -22,5 +22,5 @@ if (isset($posts_id)) {
     $select = $db->prepare($query);
     $select->bindValue(1, $posts_id);
     $select->execute();
-    $goodList = $select->fetchAll(PDO::FETCH_COLUMN); //指定の１つのカラムを取得
+    $goodList = $select->fetchAll(PDO::FETCH_ASSOC); //指定の１つのカラムを取得
 }
