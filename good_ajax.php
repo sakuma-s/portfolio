@@ -25,6 +25,6 @@ function goodCount($db)
         $select->bindValue(1, $posts_id);
         $select->execute();
         $goodList = $select->fetchAll(PDO::FETCH_ASSOC); //指定の１つのカラムを取得
-        return $goodList;
     }
+    return $goodList;
 }
