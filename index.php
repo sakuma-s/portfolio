@@ -7,11 +7,11 @@ $board = [];
 // $goodList = [];設置してからボタンが表示されなくなった
 require_once('connect.php');
 require_once('create.php');
+require_once('good_ajax.php');
 $db = connect();
-// require_once('good_ajax.php');
-// $goodList = goodCount($db);
 createBoard($db, $board);
 deleteBoard($db, $posts_id);
+$goodList = goodCount($db);
 list($page, $maxPage, $list) = pagiNation($db);
 var_dump($goodList);
 ?>
