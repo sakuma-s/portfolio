@@ -67,10 +67,8 @@ var_dump($goodList);
                             <div><a href="reply_message.php?posts_id=<?php echo ($value['posts_id']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
                             <div><a href="?posts_id=<?php echo ($value['posts_id']) ?>">[削除]</a></div>
                             <div><?php echo $value['created']; ?></div>
-                            <!-- <?php foreach ($goodList as $goodCount) : ?> -->
                             <i class="far fa-thumbs-up"><input data-posts_id=<?php echo ($value['posts_id']); ?> class="good" type="button" name="good" value="good"><?PHP echo ($goodCount['good_id']); ?>
                             </i>
-                            <!-- <?php endforeach; ?> -->
                             <div id="result"></div>
                         </div>
                     </div>
