@@ -12,7 +12,7 @@ createBoard($db, $board);
 deleteBoard($db, $posts_id);
 list($page, $maxPage, $list) = pagiNation($db);
 require_once('good_ajax.php'); //この順番をcreate.phpの下にすると削除機能が動作しなくなる
-// $goodList = goodCount($db);
+$goodList = goodCount($db);
 
 var_dump($goodList);
 ?>
