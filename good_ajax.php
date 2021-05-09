@@ -4,7 +4,10 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 $good = filter_input(INPUT_POST, 'name');
 $dataPostId = filter_input(INPUT_POST, 'data-posts_id');
+$goodList = filter_input(INPUT_POST, 'goodList');
 sleep(2);
+require_once('connect.php');
+$db = connect();
 // var_dump($dataPostId); //NULLになる
 // var_export($good);
 //カウントアップ
