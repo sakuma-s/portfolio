@@ -4,10 +4,9 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 $errors = [];
 $board = [];
-// $goodList = [];設置してからボタンが表示されなくなった
 require_once('connect.php');
 require_once('create.php');
-require_once('good_ajax.php'); //この順番をcreate.phpの下にすると削除機能が動作しなくなる
+require_once('good_ajax.php');
 $db = connect();
 createBoard($db, $board);
 deleteBoard($db, $posts_id);
