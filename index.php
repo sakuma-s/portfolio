@@ -13,6 +13,7 @@ deleteBoard($db, $posts_id);
 list($page, $maxPage, $list) = pagiNation($db);
 $goodList = goodCount($db, $goodList);
 // var_dump($goodList);　最初の表示がNULL
+var_dump($list);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
