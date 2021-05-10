@@ -59,7 +59,6 @@ $goodList = goodCount($db, $goodList);
         </form>
         <main>
             <?php foreach ($list as $value) : ?>
-                <!-- <?php foreach ($goodList as $goodcount) : ?> -->
                 <div class="card">
                     <div class="card-body">
                         <div class="card-text">
@@ -74,7 +73,6 @@ $goodList = goodCount($db, $goodList);
                         </div>
                     </div>
                 </div>
-                <!-- <?php endforeach; ?> -->
             <?php endforeach; ?>
         </main>
         <div class="mt-3 mb-5">
