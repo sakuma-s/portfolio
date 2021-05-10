@@ -12,8 +12,8 @@ createBoard($db, $board);
 deleteBoard($db, $posts_id);
 list($page, $maxPage, $list) = pagiNation($db);
 $goodList = goodCount($db, $goodList);
-// var_dump($goodList);　最初の表示がNULL
-var_dump($list);
+// var_dump($goodList);　最初の表示がNULL。データ取得が上手くできていない。
+//var_dump($list); 内容が表示されている
 ?>
 <!DOCTYPE html>
 <html lang="ja">
