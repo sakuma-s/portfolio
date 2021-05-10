@@ -18,7 +18,7 @@ if (isset($dataPostId)) {
     $statement->execute();
 }
 //データ取得
-function goodCount($db)
+function goodCount($db, $goodList)
 {
     if (isset($dataPostId)) {
         $query = "SELECT good_id FROM good WHERE posts_id = ?";
