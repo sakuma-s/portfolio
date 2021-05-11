@@ -26,8 +26,8 @@ function goodCount($db)
         $query = "SELECT good_id FROM good WHERE posts_id = ?";
         $select = $db->prepare($query);
         $select->bindValue(1, $dataPostId);
+        $select->execute();
     }
-    $select->execute(); //上記のif文から抜ける
     $goodList = $select->fetchAll(PDO::FETCH_ASSOC);
     var_dump($goodList); //データ取得できていた
     return $goodList;
