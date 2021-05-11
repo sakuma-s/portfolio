@@ -21,9 +21,9 @@ if (isset($dataPostId)) {
 }
 //データ取得
 // if (isset($dataPostId)) {
-$query = "SELECT good_id FROM good WHERE posts_id = ?";
+$query = "SELECT good_id FROM good WHERE posts_id = 784";
 $select = $db->prepare($query);
-$select->bindValue(1, $dataPostId);
+// $select->bindValue(1, $dataPostId);
 $select->execute();
 $goodList = $select->fetchAll(PDO::FETCH_ASSOC);
 // }
