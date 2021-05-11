@@ -9,7 +9,7 @@ sleep(2);
 require_once('connect.php');
 $db = connect();
 // echo 'good_ajax.phpで指定' . var_dump($goodList); //NULL
-var_dump($dataPostId);
+var_dump($dataPostId); //ボタンを押すとidが表示される
 var_dump($goodList); //NULLになる
 // var_export($good);
 //カウントアップ
@@ -20,10 +20,10 @@ if (isset($dataPostId)) {
     $statement->execute();
 }
 //データ取得
-// if (isset($dataPostId)) {
-$query = "SELECT good_id FROM good WHERE posts_id = ?";
-$select = $db->prepare($query);
-$select->bindValue(1, $dataPostId);
-$select->execute();
-$goodList = $select->fetchAll(PDO::FETCH_ASSOC);
-// }
+if (isset($dataPostId)) {
+    $query = "SELECT good_id FROM good WHERE posts_id = ?";
+    $select = $db->prepare($query);
+    $select->bindValue(1, $dataPostId);
+    $select->execute();
+    $goodList = $select->fetchAll(PDO::FETCH_ASSOC);
+}
