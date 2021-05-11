@@ -26,4 +26,5 @@ if (isset($dataPostId)) {
     $select->bindValue(1, $dataPostId);
     $select->execute();
     $goodList = $select->fetchAll(PDO::FETCH_ASSOC);
+    var_dump($goodList);
 }
