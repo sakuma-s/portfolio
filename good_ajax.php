@@ -20,15 +20,15 @@ if (isset($dataPostId)) {
     $statement->execute();
 }
 //データ取得
-// function goodCount($db)
-// {
-if (isset($dataPostId)) {
-    $query = "SELECT good_id FROM good WHERE posts_id = ?";
-    $select = $db->prepare($query);
-    $select->bindValue(1, $dataPostId);
-    $select->execute();
-    $goodList = $select->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($goodList); //データ取得できていた
-    // return print_r($goodList);
+function goodCount($db, $goodList)
+{
+    if (isset($dataPostId)) {
+        $query = "SELECT good_id FROM good WHERE posts_id = ?";
+        $select = $db->prepare($query);
+        $select->bindValue(1, $dataPostId);
+        $select->execute();
+        $goodList = $select->fetchAll(PDO::FETCH_ASSOC);
+        var_dump($goodList); //データ取得できていた
+        // return print_r($goodList);
+    }
 }
-// }
