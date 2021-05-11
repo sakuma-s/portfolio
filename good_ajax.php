@@ -8,6 +8,7 @@ $goodList = filter_input(INPUT_GET, 'goodList');
 sleep(2);
 require_once('connect.php');
 $db = connect();
+var_dump($goodList);
 // var_dump($dataPostId); //NULLになる
 // var_export($good);
 //カウントアップ
