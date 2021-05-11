@@ -20,18 +20,22 @@ if (isset($dataPostId)) {
     $statement->execute();
 }
 //データ取得
-$dataPostId = 784;
-function goodCount($db, $dataPostId)
+function goodCount($db, $dataPost)
 {
-    if (isset($dataPostId)) {
+    if (isset($dataPost)) {
         $query = "SELECT good_id FROM good WHERE posts_id = ?";
         $select = $db->prepare($query);
-        $select->bindValue(1, $dataPostId);
+        $select->bindValue(1, $dataPost);
         $select->execute();
         $goodList = $select->fetchAll(PDO::FETCH_ASSOC);
         return $goodList; //データ取得できていた
     } else {
         echo "データが取得できませんでした" . PHP_EOL;
-        echo "値は:" . var_dump($dataPostId);
+        echo "値は:" . var_dump($dataPost);
     }
+}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $dataPost = [
+        'data_posts_id' => $_POST['data_posts_id']
+    ];
 }
