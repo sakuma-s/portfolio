@@ -27,8 +27,8 @@ function goodCount($db)
         $select = $db->prepare($query);
         $select->bindValue(1, $dataPostId);
         $select->execute();
+        $goodList = $select->fetchAll(PDO::FETCH_ASSOC);
     }
-    $goodList = $select->fetchAll(PDO::FETCH_ASSOC);
     var_dump($goodList); //データ取得できていた
     return $goodList;
 }
