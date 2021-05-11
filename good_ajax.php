@@ -20,6 +20,7 @@ if (isset($dataPostId)) {
     $statement->execute();
 }
 //データ取得
+$dataPostId = 784;
 function goodCount($db, $dataPostId)
 {
     if (isset($dataPostId)) {
