@@ -13,7 +13,7 @@ deleteBoard($db, $posts_id);
 list($page, $maxPage, $list) = pagiNation($db);
 // $goodList = goodCount($db, $goodList);
 var_dump($goodList); //idを指定すると表示される
-print_r($goodList);
+// print_r($goodList);
 // var_dump($dataPostId); //NULL
 //最初の表示がNULL。データ取得が上手くできていない。ここが表示されればデータ取得出来ていることになる。
 //var_dump($list); 内容が表示されている
