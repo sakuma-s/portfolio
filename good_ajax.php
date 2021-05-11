@@ -8,7 +8,7 @@ $goodList = filter_input(INPUT_GET, 'goodList');
 sleep(2);
 require_once('connect.php');
 $db = connect();
-echo 'good_ajax.phpで指定' . var_dump($goodList); //SQL文でid指定するとidが表示される
+// echo 'good_ajax.phpで指定' . var_dump($goodList); //NULL
 // var_dump($dataPostId);
 // var_dump($goodList);//NULLになる
 // var_export($good);
