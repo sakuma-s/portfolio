@@ -20,10 +20,10 @@ if (isset($dataPostId)) {
     $statement->execute();
 }
 //データ取得
-if (isset($dataPostId)) {
-    $query = "SELECT good_id FROM good WHERE posts_id = ?";
-    $select = $db->prepare($query);
-    $select->bindValue(1, $dataPostId);
-    $select->execute();
-    $goodList = $select->fetchAll(PDO::FETCH_ASSOC);
-}
+// if (isset($dataPostId)) {
+$query = "SELECT good_id FROM good WHERE posts_id = ?";
+$select = $db->prepare($query);
+$select->bindValue(1, $dataPostId);
+$select->execute();
+$goodList = $select->fetchAll(PDO::FETCH_ASSOC);
+// }
