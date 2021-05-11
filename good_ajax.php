@@ -22,14 +22,14 @@ if (isset($dataPostId)) {
 //データ取得
 // function goodCount($db)
 // {
-// if (isset($dataPostId)) {
-$query = "SELECT good_id FROM good WHERE posts_id = ?";
-$select = $db->prepare($query);
-$select->bindValue(1, $dataPostId);
-$select->execute();
-$goodList = $select->fetchAll(PDO::FETCH_ASSOC); //指定の１つのカラムを取得
+if (isset($dataPostId)) {
+    $query = "SELECT good_id FROM good WHERE posts_id = ?";
+    $select = $db->prepare($query);
+    $select->bindValue(1, $dataPostId);
+    $select->execute();
+    $goodList = $select->fetchAll(PDO::FETCH_ASSOC); //指定の１つのカラムを取得
     // } else {
     //     echo "データを取得できませんでした";
-// }
-// return $goodList;
-// }
+    // }
+    // return $goodList;
+}
