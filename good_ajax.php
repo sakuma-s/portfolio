@@ -14,7 +14,7 @@ var_dump($goodList);
 //カウントアップ
 if (isset($dataPostId)) {
     $query = "UPDATE good SET good_id = good_id + 1 WHERE posts_id = ?";
-    $statement = $db->prepare($query); //$dsnにする？
+    $statement = $db->prepare($query);
     $statement->bindValue(1, $dataPostId);
     $statement->execute();
 }
@@ -30,5 +30,5 @@ if (isset($dataPostId)) {
     // } else {
     //     echo "データを取得できませんでした";
 }
-return $goodList;
+// return $goodList;
 // }
