@@ -30,4 +30,5 @@ function goodCount($db)
     $select->execute(); //上記のif文から抜ける
     $goodList = $select->fetchAll(PDO::FETCH_ASSOC);
     var_dump($goodList); //データ取得できていた
+    return $goodList;
 }
