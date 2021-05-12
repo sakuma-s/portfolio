@@ -6,7 +6,7 @@ $good = filter_input(INPUT_POST, 'name');
 $dataPostId = filter_input(INPUT_POST, 'data-posts_id'); //最初はNULL。ボタンを押すとid表示。
 $goodList = filter_input(INPUT_GET, 'goodList');
 // $_POST['data-post_id'] = filter_input(INPUT_POST, 'data-posts_id');
-sleep(2);
+// sleep(2);
 require_once('connect.php');
 $db = connect();
 // echo 'good_ajax.phpで指定' . var_dump($goodList); //NULL
@@ -23,15 +23,15 @@ if (isset($dataPostId)) {
     $statement->execute();
 }
 //データ取得
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // function goodCount($db, $dataPostId)
-    // {
-    $query = "SELECT good_id FROM good WHERE posts_id = ?";
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+function goodCount($db)
+{
+    $query = "SELECT good_id FROM good";
     $select = $db->prepare($query);
-    $select->bindValue(1, $dataPostId);
+    // $select->bindValue(1, $dataPostId);
     $select->execute();
     $goodList = $select->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($goodList); //データが表示される
+    return $goodList; //データが表示される
 }
 // }
 // else {
