@@ -31,7 +31,7 @@ $select = $db->prepare($query);
 $select->bindValue(1, $dataPostId);
 $select->execute();
 $goodList = $select->fetchAll(PDO::FETCH_ASSOC);
-// return $goodList; //データ取得できていた
+var_dump($goodList); //データ取得できていた
 // } else {
 //     echo "データが取得できませんでした" . PHP_EOL;
 //     echo "値は:" . var_dump($dataPostId) . "です";
