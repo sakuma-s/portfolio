@@ -62,22 +62,20 @@ var_dump($goodList); //idを指定すると表示される
         </form>
         <main>
             <?php foreach ($list as $value) : ?>
-                <?php foreach ($goodList as $value) : ?>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-text">
-                                <div><?php echo ($value['posts_id']); ?>&nbsp;<?php echo h($value['nickname']); ?></div>
-                                <div><?php echo h($value['message']); ?></div>
-                                <div><a href="reply_message.php?posts_id=<?php echo ($value['posts_id']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
-                                <div><a href="?posts_id=<?php echo ($value['posts_id']) ?>">[削除]</a></div>
-                                <div><?php echo $value['created']; ?></div>
-                                <i class="far fa-thumbs-up"><input data-posts_id=<?php echo ($value['posts_id']); ?> class="good" type="button" name="good" value="good"><?php echo ($goodList['good_id']); ?>
-                                </i>
-                                <div id="result"></div>
-                            </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-text">
+                            <div><?php echo ($value['posts_id']); ?>&nbsp;<?php echo h($value['nickname']); ?></div>
+                            <div><?php echo h($value['message']); ?></div>
+                            <div><a href="reply_message.php?posts_id=<?php echo ($value['posts_id']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
+                            <div><a href="?posts_id=<?php echo ($value['posts_id']) ?>">[削除]</a></div>
+                            <div><?php echo $value['created']; ?></div>
+                            <i class="far fa-thumbs-up"><input data-posts_id=<?php echo ($value['posts_id']); ?> class="good" type="button" name="good" value="good"><?php foreach ($goodList as $value) : ?><?php echo ($goodList['good_id']); ?><?php endforeach; ?>
+                            </i>
+                            <div id="result"></div>
                         </div>
                     </div>
-                <?php endforeach; ?>
+                </div>
             <?php endforeach; ?>
         </main>
         <div class="mt-3 mb-5">
