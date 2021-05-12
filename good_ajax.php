@@ -23,15 +23,16 @@ if (isset($dataPostId)) {
     $statement->execute();
 }
 //データ取得
-function goodCount($db, $dataPostId)
-{
-    // if (isset($dataPostId)) {
-    $query = "SELECT good_id FROM good WHERE posts_id = ?";
-    $select = $db->prepare($query);
-    $select->bindValue(1, $dataPostId);
-    $select->execute();
-    $goodList = $select->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($goodList); //データが表示される
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    function goodCount($db, $dataPostId)
+    {
+        $query = "SELECT good_id FROM good WHERE posts_id = ?";
+        $select = $db->prepare($query);
+        $select->bindValue(1, $dataPostId);
+        $select->execute();
+        $goodList = $select->fetchAll(PDO::FETCH_ASSOC);
+        var_dump($goodList); //データが表示される
+    }
 }
 // else {
 //     echo "データが取得できませんでした" . PHP_EOL;
