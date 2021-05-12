@@ -13,7 +13,7 @@ $db = connect();
 var_dump($_POST['data-post_id']);
 var_dump($dataPostId); //ボタンを押すとidが表示される
 var_dump($goodList); //NULLになる。GETの時の場合。関数をなくしボタンを押すと配列が表示される
-var_dump($dataPost['data-posts_id']);
+var_dump($dataPost['data-posts_id']); //null
 // var_export($good);
 //カウントアップ
 if (isset($dataPostId)) {
@@ -41,4 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $dataPost = [
         'data_posts_id' => $_POST['data_posts_id']
     ];
+} else {
+    echo "$dataPostは、POSTされていません";
 }
