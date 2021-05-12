@@ -70,7 +70,7 @@ var_dump($goodList); //idを指定すると表示される
                             <div><a href="reply_message.php?posts_id=<?php echo ($value['posts_id']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
                             <div><a href="?posts_id=<?php echo ($value['posts_id']) ?>">[削除]</a></div>
                             <div><?php echo $value['created']; ?></div>
-                            <i class="far fa-thumbs-up"><input data-posts_id=<?php echo ($value['posts_id']); ?> class="good" type="button" name="good" value="good"> <?php foreach ($goodList as $value1) : ?><?php echo ($value1['good_id']); ?> <?php endforeach; ?>
+                            <i class="far fa-thumbs-up"><input data-posts_id=<?php echo ($value['posts_id']); ?> class="good" type="button" name="good" value="good">&nbsp;<?php foreach ($goodList as $value1) : ?><?php echo ($value1['good_id']); ?><?php endforeach; ?>
                             </i>
                             <div id="result"></div>
                         </div>
