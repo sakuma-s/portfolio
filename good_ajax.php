@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 $good = filter_input(INPUT_POST, 'name');
-// $dataPostId = filter_input(INPUT_POST, 'data-posts_id');
+$dataPostId = filter_input(INPUT_POST, 'data-posts_id');
 $goodList = filter_input(INPUT_GET, 'goodList');
 $_POST['data-post_id'] = filter_input(INPUT_POST, 'data-posts_id');
 sleep(2);
@@ -11,8 +11,9 @@ require_once('connect.php');
 $db = connect();
 // echo 'good_ajax.phpで指定' . var_dump($goodList); //NULL
 var_dump($_POST['data-post_id']);
-// var_dump($dataPostId); //ボタンを押すとidが表示される
+var_dump($dataPostId); //ボタンを押すとidが表示される
 var_dump($goodList); //NULLになる。GETの時の場合。関数をなくしボタンを押すと配列が表示される
+var_dump($dataPost);
 // var_export($good);
 //カウントアップ
 if (isset($dataPostId)) {
