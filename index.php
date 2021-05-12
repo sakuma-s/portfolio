@@ -13,9 +13,6 @@ deleteBoard($db, $posts_id);
 list($page, $maxPage, $list) = pagiNation($db);
 $goodList = goodCount($db);
 var_dump($goodList); //idを指定すると表示される
-$allContens = array();
-array_push($allContens, $list);
-array_push($allContens, $goodList);
 // print_r($goodList);
 // var_dump($dataPostId); //NULL
 //最初の表示がNULL。データ取得が上手くできていない。ここが表示されればデータ取得出来ていることになる。
@@ -64,23 +61,21 @@ array_push($allContens, $goodList);
             </div>
         </form>
         <main>
-            <?php foreach ($allContens as $value) : ?>
-                <?php foreach ($value as $value1) : ?>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="card-text">
-                                <div><?php echo ($$value1['posts_id']); ?>&nbsp;<?php echo h($$value1['nickname']); ?></div>
-                                <div><?php echo h($$value1['message']); ?></div>
-                                <div><a href="reply_message.php?posts_id=<?php echo ($$value1['posts_id']); ?>">[コメント]</a><?php echo h($$value1['reply_message']); ?></div>
-                                <div><a href="?posts_id=<?php echo ($$value1['posts_id']) ?>">[削除]</a></div>
-                                <div><?php echo $$value1['created']; ?></div>
-                                <i class="far fa-thumbs-up"><input data-posts_id=<?php echo ($$value1['posts_id']); ?> class="good" type="button" name="good" value="good"><?php echo ($value1['good_id']); ?>
-                                </i>
-                                <div id="result"></div>
-                            </div>
+            <?php foreach ($list as $value) : ?>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-text">
+                            <div><?php echo ($value['posts_id']); ?>&nbsp;<?php echo h($value['nickname']); ?></div>
+                            <div><?php echo h($value['message']); ?></div>
+                            <div><a href="reply_message.php?posts_id=<?php echo ($value['posts_id']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
+                            <div><a href="?posts_id=<?php echo ($value['posts_id']) ?>">[削除]</a></div>
+                            <div><?php echo $value['created']; ?></div>
+                            <i class="far fa-thumbs-up"><input data-posts_id=<?php echo ($value['posts_id']); ?> class="good" type="button" name="good" value="good"> <?php foreach ($goodList as $value1) : ?><?php echo ($value1['good_id']); ?> <?php endforeach; ?>
+                            </i>
+                            <div id="result"></div>
                         </div>
                     </div>
-                <?php endforeach; ?>
+                </div>
             <?php endforeach; ?>
         </main>
         <div class="mt-3 mb-5">
