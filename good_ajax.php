@@ -21,7 +21,6 @@ function goodCount($db)
 {
     $query = "SELECT good_id FROM good";
     $select = $db->prepare($query);
-    // $select->bindValue(1, $dataPostId);
     $select->execute();
     $goodList = $select->fetchAll(PDO::FETCH_ASSOC);
     return $goodList; //データが表示される
