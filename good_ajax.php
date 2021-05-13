@@ -16,12 +16,12 @@ var_dump($goodList); //NULLになる。GETの時の場合。関数をなくし�
 // var_dump($dataPost['data-posts_id']); //null
 // var_export($good);
 //カウントアップ
-// if (isset($dataPostId)) {
-$query = "UPDATE good SET good_id = good_id + 1 WHERE posts_id = 794";
-$statement = $db->prepare($query);
-// $statement->bindValue(1, $dataPostId);
-$statement->execute();
-// }
+if (isset($dataPostId)) {
+    $query = "UPDATE good SET good_id = good_id + 1 WHERE posts_id = ?";
+    $statement = $db->prepare($query);
+    $statement->bindValue(1, $dataPostId);
+    $statement->execute();
+}
 //データ取得
 // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 function goodCount($db)
