@@ -5,16 +5,10 @@ error_reporting(E_ALL);
 $good = filter_input(INPUT_POST, 'name');
 $dataPostId = filter_input(INPUT_POST, 'data-posts_id'); //最初はNULL。ボタンを押すとid表示。
 $goodList = filter_input(INPUT_GET, 'goodList');
-// $_POST['data-post_id'] = filter_input(INPUT_POST, 'data-posts_id');
-// sleep(2);
 require_once('connect.php');
 $db = connect();
-// echo 'good_ajax.phpで指定' . var_dump($goodList); //NULL
-// var_dump($_POST['data-post_id']);
 var_dump($dataPostId); //ボタンを押すとidが表示される.押す前はNULL。
 var_dump($goodList); //NULLになる。GETの時の場合。関数をなくしボタンを押すと配列が表示される
-// var_dump($dataPost['data-posts_id']); //null
-// var_export($good);
 //カウントアップ
 if (isset($dataPostId)) {
     $query = "UPDATE good SET good_id = good_id + 1 WHERE posts_id = ?";
