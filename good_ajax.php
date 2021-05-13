@@ -17,7 +17,6 @@ if (isset($dataPostId)) {
     $statement->execute();
 }
 //データ取得
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 function goodCount($db)
 {
     $query = "SELECT good_id FROM good";
@@ -27,16 +26,3 @@ function goodCount($db)
     $goodList = $select->fetchAll(PDO::FETCH_ASSOC);
     return $goodList; //データが表示される
 }
-// }
-// else {
-//     echo "データが取得できませんでした" . PHP_EOL;
-//     echo "値は:" . var_dump($dataPostId) . "です";
-// }
-// }
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') { //カスタムデータを取得できていないのでNULLになる
-//     $dataPost = [
-//         'data_posts_id' => $_POST['data_posts_id']
-//     ];
-// } else {
-//     echo "$dataPostは、POSTされていません";
-// }
