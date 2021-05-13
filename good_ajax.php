@@ -10,12 +10,12 @@ $db = connect();
 var_dump($dataPostId); //ボタンを押すとidが表示される.押す前はNULL。
 var_dump($goodList); //NULLになる。GETの時の場合。関数をなくしボタンを押すと配列が表示される
 //カウントアップ
-// if (isset($dataPostId)) {
-$query = "UPDATE good SET good_id = good_id + 1 WHERE posts_id = 804";
-$statement = $db->prepare($query);
-// $statement->bindValue(1, $dataPostId);
-$statement->execute();
-// }
+if (isset($dataPostId)) {
+    $query = "UPDATE good SET good_id = good_id + 1 WHERE posts_id = ?";
+    $statement = $db->prepare($query);
+    $statement->bindValue(1, $dataPostId);
+    $statement->execute();
+}
 //データ取得
 function goodCount($db)
 {
