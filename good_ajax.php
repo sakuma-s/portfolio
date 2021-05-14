@@ -16,12 +16,3 @@ if (isset($dataPostId)) {
     $statement->bindValue(1, $dataPostId);
     $statement->execute();
 }
-//データ取得
-function goodCount($db)
-{
-    $query = "SELECT good_count FROM posts";
-    $select = $db->prepare($query);
-    $select->execute();
-    $goodList = $select->fetchAll(PDO::FETCH_ASSOC);
-    return $goodList; //データが表示される
-}
