@@ -1,0 +1,40 @@
+# Query: created
+# ContextLines: 3
+
+4 件の結果 - 4 ファイル
+
+create.php:
+  12  function createBoard($db, $board)
+  13  {
+  14      if (!empty($board['nickname']) && !empty($board['message'])) {
+  15:         $statement = $db->prepare('INSERT INTO posts SET nickname=?, message=?,created_at=NOW()');
+  16          $statement->execute(array($board['nickname'], $board['message']));
+  17      }
+  18  }
+
+first-bulletin-board.sql:
+  3    nickname varchar(50) NOT NULL,
+  4    message varchar(140) NOT NULL,
+  5    reply_message varchar(150) NOT NULL,
+  6:   created_at datetime NOT NULL,
+  7    PRIMARY KEY ('id')
+  8  )
+  9  
+
+index.php:
+  65                              <div><?php echo h($value['message']); ?></div>
+  66                              <div><a href="reply_message.php?posts_id=<?php echo ($value['posts_id']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
+  67                              <div><a href="?posts_id=<?php echo ($value['posts_id']) ?>">[削除]</a></div>
+  68:                             <div><?php echo $value['created_at']; ?></div>
+  69                              <i class="far fa-thumbs-up"><input data-posts_id=<?php echo ($value['posts_id']); ?> class="good" type="button" name="good" value="good">&nbsp;<?php foreach ($goodList as $value1) : ?><?php echo ($value1['good_id']); ?><?php endforeach; ?>
+  70                              </i>
+  71                              <div id="result"></div>
+
+reply_message.php:
+   7  function commentBoard($db, $board)
+   8  {
+   9      if (!empty($board['reply_message']) && (iconv_strlen($board['reply_message']) >= 7)) {
+  10:         $statement = $db->prepare('INSERT INTO posts SET reply_message = ?, created_at = NOW()');
+  11          $statement->execute(array($board['reply_message']));
+  12      }
+  13  }

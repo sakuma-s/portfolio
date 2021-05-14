@@ -7,7 +7,7 @@ $errors = [];
 function commentBoard($db, $board)
 {
     if (!empty($board['reply_message']) && (iconv_strlen($board['reply_message']) >= 7)) {
-        $statement = $db->prepare('INSERT INTO posts SET reply_message=?, created=NOW()');
+        $statement = $db->prepare('INSERT INTO posts SET reply_message = ?, created_at = NOW()');
         $statement->execute(array($board['reply_message']));
     }
 }

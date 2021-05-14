@@ -3,7 +3,7 @@ CREATE TABLE posts (
   nickname varchar(50) NOT NULL,
   message varchar(140) NOT NULL,
   reply_message varchar(150) NOT NULL,
-  created datetime NOT NULL,
+  created_at datetime NOT NULL,
   PRIMARY KEY ('id')
 )
 
