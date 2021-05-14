@@ -1,0 +1,23 @@
+# Query: good_id
+# ContextLines: 1
+
+5 件の結果 - 3 ファイル
+
+first-bulletin-board.sql:
+  11    id int(11) NOT NULL AUTO_INCRIMENT,
+  12:   good_id int(11) NOT NULL,
+  13    posts_id int(11) NOT NULL,
+
+good_ajax.php:
+  13  if (isset($dataPostId)) {
+  14:     $query = "UPDATE posts SET good_count = good_count + 1 WHERE posts_id = ?";
+  15      $statement = $db->prepare($query);
+
+  21  {
+  22:     $query = "SELECT good_count FROM posts";
+  23      $select = $db->prepare($query);
+
+index.php:
+  68                              <div><?php echo $value['created_at']; ?></div>
+  69:                             <i class="far fa-thumbs-up"><input data-posts_id=<?php echo ($value['posts_id']); ?> class="good" type="button" name="good" value="good">&nbsp;<?php foreach ($goodList as $value1) : ?><?php echo ($value1['good_count']); ?><?php endforeach; ?>
+  70                              </i>

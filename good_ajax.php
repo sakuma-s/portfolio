@@ -11,7 +11,7 @@ var_dump($dataPostId); //ボタンを押すとidが表示される.押す前はN
 var_dump($goodList); //NULLになる。GETの時の場合。関数をなくしボタンを押すと配列が表示される
 //カウントアップ
 if (isset($dataPostId)) {
-    $query = "UPDATE good SET good_id = good_id + 1 WHERE posts_id = ?";
+    $query = "UPDATE posts SET good_count = good_count + 1 WHERE posts_id = ?";
     $statement = $db->prepare($query);
     $statement->bindValue(1, $dataPostId);
     $statement->execute();
@@ -19,7 +19,7 @@ if (isset($dataPostId)) {
 //データ取得
 function goodCount($db)
 {
-    $query = "SELECT good_id FROM good";
+    $query = "SELECT good_count FROM posts";
     $select = $db->prepare($query);
     $select->execute();
     $goodList = $select->fetchAll(PDO::FETCH_ASSOC);
