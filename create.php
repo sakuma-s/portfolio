@@ -12,7 +12,7 @@ $_GET['page_id'] = filter_input(INPUT_GET, 'page_id');
 function createBoard($db, $board)
 {
     if (!empty($board['nickname']) && !empty($board['message'])) {
-        $statement = $db->prepare('INSERT INTO posts SET nickname=?, message=?,created_at=NOW()');
+        $statement = $db->prepare('INSERT INTO posts(nickname,message) SET nickname=?, message=?,created_at=NOW()');
         $statement->execute(array($board['nickname'], $board['message']));
     }
 }
