@@ -14,3 +14,11 @@ if (isset($dataPostId)) {
     $statement->bindValue(1, $dataPostId);
     $statement->execute();
 }
+//データ取得表示
+if (isset($dataPostId)) {
+    $query = "SELECT good_count FROM posts";
+    $select = $db->prepare($query);
+    $select->execute();
+    $goodCount = $select->fetchAll(PDO::FETCH_ASSOC);
+    var_dump($goodCount);
+}
