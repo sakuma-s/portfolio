@@ -21,5 +21,5 @@ if (isset($dataPostId)) {
     $select->execute();
     $goodCount = $select->fetchAll(PDO::FETCH_ASSOC);
     // var_dump($goodCount);//一番上に配列でカウント数が表示される
-    echo gettype($goodCount);
+    //echo gettype($goodCount); //array
 }
