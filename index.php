@@ -56,7 +56,7 @@ list($page, $maxPage, $list) = pagiNation($db);
             </div>
         </form>
         <main>
-            <?php foreach ($list as $value) : ?>
+            <?php foreach ($goodCount as $value) : ?>
                 <div class="card">
                     <div class="card-body">
                         <div class="card-text">
