@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 $good = filter_input(INPUT_POST, 'name');
-$dataPostId = filter_input(INPUT_POST, 'data-posts_id'); //最初はNULL。ボタンを押すとid表示。
+// $dataPostId = filter_input(INPUT_POST, 'data-posts_id'); //最初はNULL。ボタンを押すとid表示。
 $goodCount = filter_input(INPUT_GET, 'goodCount');
 require_once('connect.php');
 $db = connect();
@@ -16,11 +16,21 @@ if (isset($dataPostId)) {
     $statement->execute();
 }
 //データ取得表示
-if (isset($dataPostId)) {
-    $query = "SELECT good_count FROM posts";
-    $select = $db->prepare($query);
-    $select->execute();
-    $goodCount = $select->fetchAll(PDO::FETCH_ASSOC);
-    var_dump($goodCount); //一番上に配列でカウント数が表示される
-    //echo gettype($goodCount); //array
+function goodList($db, $good)
+{
+    if (isset($good['data-posts_id'])) {
+        $query = "SELECT good_count FROM posts";
+        $select = $db->prepare($query);
+        $select->execute();
+        $goodCount = $select->fetchAll(PDO::FETCH_ASSOC);
+        // var_dump($goodCount); //一番上に配列でカウント数が表示される
+        //echo gettype($goodCount); //array
+        return $goodCount;
+    }
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $good = [
+        'data-posts_id' => $_POST['data-posts_id']
+    ];
 }
