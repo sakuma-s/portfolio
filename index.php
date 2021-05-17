@@ -12,6 +12,7 @@ $db = connect();
 createBoard($db, $board);
 deleteBoard($db, $posts_id);
 list($page, $maxPage, $list) = pagiNation($db);
+var_dump($goodCount);
 ?>
 <!DOCTYPE html>
 <html lang="ja">
