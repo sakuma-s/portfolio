@@ -8,6 +8,7 @@ $goodCount = filter_input(INPUT_GET, 'goodCount');
 require_once('connect.php');
 $db = connect();
 var_dump($goodCount);
+var_dump($good);
 // print($_REQUEST['data-posts_id'] . 'にgoodボタンが押されました'); //idが表示される
 //カウントアップ
 if (isset($dataPostId)) {
