@@ -4,8 +4,6 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 $errors = [];
 $board = [];
-// $goodCount = "";
-$goodList = filter_input(INPUT_GET, '$goodList');
 require_once('connect.php');
 require_once('create.php');
 require_once('good_ajax.php');
@@ -68,7 +66,7 @@ list($page, $maxPage, $list) = pagiNation($db);
                             <div><a href="reply_message.php?posts_id=<?php echo ($value['posts_id']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
                             <div><a href="?posts_id=<?php echo ($value['posts_id']) ?>">[削除]</a></div>
                             <div><?php echo $value['created_at']; ?></div>
-                            <i class="far fa-thumbs-up"><input data-posts_id=<?php echo ($value['posts_id']); ?> class="good" type="button" name="good" value="good">&nbsp;<?php foreach ($goodCount as $count) : ?><?php echo ($count['good_count']); ?><?php endforeach; ?>
+                            <i class="far fa-thumbs-up"><input data-posts_id=<?php echo ($value['posts_id']); ?> class="good" type="button" name="good" value="good">&nbsp;<?php echo ($count['good_count']); ?>
 
                             </i>
                             <div id="result"></div>
