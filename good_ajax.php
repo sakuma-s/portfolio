@@ -10,7 +10,7 @@ $db = connect();
 var_dump($dataPostId);
 // $dataId = isset($dataPostId); //関数で使用する時にNULLの値を渡したくないので確認
 // var_dump($dataId);//ボタンを押すとtrue。最初はfalse。
-// var_dump($goodCount);
+var_dump($goodCount);
 // var_dump($good);
 // print($_REQUEST['data-posts_id'] . 'にgoodボタンが押されました'); //idが表示される
 //カウントアップ
