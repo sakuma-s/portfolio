@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-$good = filter_input(INPUT_POST, 'name');
+// $good = filter_input(INPUT_POST, 'name');
 $dataPostId = filter_input(INPUT_POST, 'data-posts_id'); //最初はNULL。ボタンを押すとid表示。
 $goodCount = filter_input(INPUT_GET, 'goodCount');
 require_once('connect.php');
@@ -21,9 +21,9 @@ if (isset($dataPostId)) {
     $statement->execute();
 }
 //データ取得表示
-function goodList($db, $dataId)
+function goodList($db, $dataPostId)
 {
-    if ($dataId) {
+    if (isset($dataPostId)) {
         $query = "SELECT good_count FROM posts";
         $select = $db->prepare($query);
         $select->execute();
