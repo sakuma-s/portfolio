@@ -8,6 +8,7 @@ $goodCount = filter_input(INPUT_GET, 'goodCount');
 require_once('connect.php');
 $db = connect();
 var_dump($dataPostId);
+$dataId = isset($dataPostId); //関数で使用する時にNULLの値を渡したくないので確認
 // var_dump($goodCount);
 // var_dump($good);
 // print($_REQUEST['data-posts_id'] . 'にgoodボタンが押されました'); //idが表示される
@@ -19,9 +20,9 @@ if (isset($dataPostId)) {
     $statement->execute();
 }
 //データ取得表示
-function goodList($db, $good)
+function goodList($db, $dataId)
 {
-    if (isset($good['data-posts_id'])) {
+    if ($dataId) {
         $query = "SELECT good_count FROM posts";
         $select = $db->prepare($query);
         $select->execute();
@@ -30,10 +31,4 @@ function goodList($db, $good)
         //echo gettype($goodCount); //array
         return $goodCount;
     }
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $good = [
-        'data-posts_id' => $_POST['data-posts_id']
-    ];
 }
