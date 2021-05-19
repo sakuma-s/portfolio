@@ -37,5 +37,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $dataPostId = [
         'data-posts_id' => $_POST['data-posts_id']
     ];
-    $goodCount = goodList($db, $goodData);
+    $goodCount = goodList($db, $dataPostId);
 }
