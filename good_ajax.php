@@ -21,9 +21,9 @@ if (isset($dataPostId)) {
     $statement->execute();
 }
 //データ取得表示
-function goodList($db, $goodData)
+function goodList($db, $dataPostId)
 {
-    if (isset($goodData)) {
+    if (isset($dataPostId)) {
         $query = "SELECT good_count FROM posts";
         $select = $db->prepare($query);
         $select->execute();
@@ -34,7 +34,7 @@ function goodList($db, $goodData)
     return $goodCount;
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $goodData = [
+    $dataPostId = [
         'data-posts_id' => $_POST['data-posts_id']
     ];
     $goodCount = goodList($db, $goodData);
