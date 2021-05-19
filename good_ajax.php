@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 $dataPostId = filter_input(INPUT_POST, 'data-posts_id'); //最初はNULL。ボタンを押すとid表示。
 require_once('connect.php');
 $db = connect();
+$_REQUEST['data-posts_id'];
 // var_dump($dataPostId); //最初はNULL
 // var_dump($goodCount); //最初はNULL
 //カウントアップ
