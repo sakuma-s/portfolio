@@ -26,7 +26,7 @@ function goodList($db) //関数にするとNULLになる
         // var_dump($goodCount); //一番上に配列でカウント数が表示される
         //echo gettype($goodCount); //array
     }
-    // return $goodCount;
+    return $goodCount;
     // }
     // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //     $dataPostId = [
