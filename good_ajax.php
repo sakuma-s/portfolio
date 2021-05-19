@@ -23,7 +23,7 @@ function goodList($db) //関数にするとNULLになる
         $select = $db->prepare($query);
         $select->execute();
         $goodCount = $select->fetchAll(PDO::FETCH_ASSOC);
-        var_dump($goodCount); //一番上に配列でカウント数が表示される
+        // var_dump($goodCount); //一番上に配列でカウント数が表示される
         //echo gettype($goodCount); //array
     }
     // return $goodCount;
@@ -34,3 +34,5 @@ function goodList($db) //関数にするとNULLになる
     //     ];
     //     $goodCount = goodList($db, $dataPostId);
 }
+$goodCount = goodList($db);
+print_r($goodCount);
