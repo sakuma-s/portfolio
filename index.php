@@ -11,8 +11,8 @@ $db = connect();
 createBoard($db, $board);
 deleteBoard($db, $posts_id);
 list($page, $maxPage, $list) = pagiNation($db);
-$goodCount = goodList($db, $dataPostId);
-var_dump($goodCount);
+// $goodCount = goodList($db, $dataPostId); //NULLが代入される
+// var_dump($goodCount); //NULL
 ?>
 <!DOCTYPE html>
 <html lang="ja">
