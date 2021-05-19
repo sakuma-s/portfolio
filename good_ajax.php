@@ -35,8 +35,8 @@ function goodList($db, $dataPostId)
     return $goodCount;
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // $dataPostId = [
-    //     'data-posts_id' => $_POST['data-posts_id']
-    // ];
+    $dataPostId = [
+        'data-posts_id' => $_POST['data-posts_id']
+    ];
     $goodCount = goodList($db, $dataPostId);
 }
