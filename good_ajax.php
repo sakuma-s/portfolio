@@ -24,6 +24,7 @@ if (isset($dataPostId)) {
 function goodList($db, $dataPostId)
 {
     if (isset($dataPostId)) {
+        $goodCount = [];
         $query = "SELECT good_count FROM posts";
         $select = $db->prepare($query);
         $select->execute();
