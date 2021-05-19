@@ -11,8 +11,6 @@ $db = connect();
 createBoard($db, $board);
 deleteBoard($db, $posts_id);
 list($page, $maxPage, $list) = pagiNation($db);
-// $goodCount = goodList($db, $dataPostId); //NULLが代入される
-// var_dump($goodCount); //NULL
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -67,13 +65,6 @@ list($page, $maxPage, $list) = pagiNation($db);
                             <div><a href="?posts_id=<?php echo ($value['posts_id']) ?>">[削除]</a></div>
                             <div><?php echo $value['created_at']; ?></div>
                             <i class="far fa-thumbs-up"><input data-posts_id=<?php echo ($value['posts_id']); ?> class="good" type="button" name="good" value="good">&nbsp;<?php echo ($value['good_count']); ?>
-                                <?php if (count($goodCount) > 0) : ?>
-                                    <?php foreach ($goodCount as $count) : ?>
-                                        <li><?php echo $count; ?></li>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-
-
                             </i>
                             <div id="result"></div>
                         </div>
