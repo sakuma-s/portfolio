@@ -6,7 +6,7 @@ $dataPostId = filter_input(INPUT_POST, 'data-posts_id'); //最初はNULL。ボ�
 require_once('connect.php');
 $db = connect();
 var_dump($dataPostId); //最初はNULL
-var_dump($goodCount); //最初はNULL
+// var_dump($goodCount); //最初はNULL
 //カウントアップ
 if (isset($dataPostId)) {
     $query = "UPDATE posts SET good_count = good_count + 1 WHERE posts_id = ?";
