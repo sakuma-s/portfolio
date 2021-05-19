@@ -34,5 +34,3 @@ function goodList($db) //関数にするとNULLになる
     //     ];
     //     $goodCount = goodList($db, $dataPostId);
 }
-$goodCount = goodList($db);
-print_r($goodCount);
