@@ -21,15 +21,21 @@ if (isset($dataPostId)) {
     $statement->execute();
 }
 //データ取得表示
-function goodList($db)
+function goodList($db, $goodData)
 {
-    if (isset($dataPostId)) {
+    if (isset($goodData)) {
         $query = "SELECT good_count FROM posts";
         $select = $db->prepare($query);
         $select->execute();
         $goodCount = $select->fetchAll(PDO::FETCH_ASSOC);
-        // var_dump($goodCount); //一番上に配列でカウント数が表示される
+        var_dump($goodCount); //一番上に配列でカウント数が表示される
         //echo gettype($goodCount); //array
     }
     return $goodCount;
+}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $goodData = [
+        'data-posts_id' => $_POST['data-posts_id']
+    ];
+    $goodCount = goodList($db, $goodData);
 }
