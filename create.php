@@ -60,11 +60,11 @@ function pagiNation($db)
     return [$page, $maxPage, $list];
 }
 //データの削除
-function deleteBoard($db, $posts_id)
-{
-    $statement = $db->prepare('DELETE FROM posts WHERE posts_id=?');
-    $statement->execute(array($posts_id));
-}
+// function deleteBoard($db, $posts_id)
+// {
+//     $statement = $db->prepare('DELETE FROM posts WHERE posts_id=?');
+//     $statement->execute(array($posts_id));
+// }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $board = [
         'nickname' => $_POST['nickname'],
