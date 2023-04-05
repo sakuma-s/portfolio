@@ -1,7 +1,7 @@
 {
     "name": "ss/portfolio",
     "require": {
-        "php": "^　８.０.28",
+        "php": "^8.0.28",
         "vlucas/phpdotenv": "^5.3"
     }
 }
