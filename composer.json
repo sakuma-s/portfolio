@@ -3,5 +3,10 @@
     "require": {
         "php": "^7.3.21",
         "vlucas/phpdotenv": "^5.3"
+    },
+    "config": {
+        "platform": {
+            "php": "7.3.21"
+        }
     }
 }
