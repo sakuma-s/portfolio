@@ -6,7 +6,7 @@ function connect()
 
     // $dsn = "mysql:dbname=;host=saaaMPro.localhost;port=3306;charset=utf8mb4";
     // $driver_options = [PDO::MYSQL_ATTR_INIT_COMMAND => "SET time_zone='+09:00'"];
-    $host = "localhost";
+    $host = "saaaMPro.local";
     $dbname = "portlolio";
     $user = "root";
     $password = "";
