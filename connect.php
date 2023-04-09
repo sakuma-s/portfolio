@@ -9,7 +9,7 @@ function connect()
     $host = "saaaMPro.local";
     $dbname = "portlolio";
     $user = "root＠localshost";
-    $password = "";
+    $password = "kirasan098";
 
     try {
         $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
