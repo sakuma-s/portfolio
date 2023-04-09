@@ -12,7 +12,7 @@ function connect()
     $password = "";
 
     try {
-        $db = new PDO("mysql:host=$host", "dbname=$dbname", $user, $password);
+        $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     } catch (PDOException $Exception) {
