@@ -8,7 +8,7 @@ function connect()
     // $driver_options = [PDO::MYSQL_ATTR_INIT_COMMAND => "SET time_zone='+09:00'"];
     $host = "saaaMPro.local";
     $dbname = "portlolio";
-    $user = "root@localhost";
+    $user = "saaaMPro.local@localhost";
     $password = "kirasan098";
 
     try {
