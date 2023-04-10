@@ -32,7 +32,7 @@ function validate($board)
 function pagiNation($db)
 {
     define('max_view', 10);
-    $count = $db->prepare('SELECT COUNT(*) AS count FROM posts');
+    $count = $db->prepare('SELECT COUNT(*) AS count FROM customers');
     $count->execute();
     $total_count = $count->fetch(PDO::FETCH_ASSOC);
     $maxPage = ceil($total_count['count'] / max_view);
