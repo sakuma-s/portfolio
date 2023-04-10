@@ -13,7 +13,7 @@ function connect()
     $password = "kirasan098";
 
     try {
-        $db = new PDO($dsn, $user, $password);
+        $db = new PDO('mysql:host=localhost;unix_socket=/tmp/mysql.sock', $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     } catch (PDOException $Exception) {
