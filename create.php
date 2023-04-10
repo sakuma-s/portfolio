@@ -5,14 +5,14 @@ error_reporting(E_ALL);
 require 'escape.php';
 $_POST['nickname'] = filter_input(INPUT_POST, 'nickname');
 $_POST['message'] = filter_input(INPUT_POST, 'message');
-$_GET['posts_id'] = filter_input(INPUT_GET, 'posts_id');
-$posts_id = $_GET['posts_id'];
+$_GET['customers_id'] = filter_input(INPUT_GET, 'customers_id');
+$customers_id = $_GET['customers_id'];
 $_GET['page_id'] = filter_input(INPUT_GET, 'page_id');
 //データ登録
 function createBoard($db, $board)
 {
     if (!empty($board['nickname']) && !empty($board['message'])) {
-        $statement = $db->prepare('INSERT INTO posts SET nickname = ?, message = ?, created_at = NOW()');
+        $statement = $db->prepare('INSERT INTO customers SET nickname = ?, message = ?, created_at = NOW()');
         $statement->execute(array($board['nickname'], $board['message']));
     }
 }
@@ -46,7 +46,7 @@ function pagiNation($db)
     $page = max($page, 1);
     $page = min($page, $maxPage);
     //表示する記事の取得
-    $select = $db->prepare("SELECT * FROM posts ORDER BY posts_id DESC LIMIT :start,:max ");
+    $select = $db->prepare("SELECT * FROM customers ORDER BY customers_id DESC LIMIT :start,:max ");
     //1ページ目の処理
     if ($page === 1) {
         $select->bindValue(":start", $page - 1, PDO::PARAM_INT);
@@ -60,10 +60,10 @@ function pagiNation($db)
     return [$page, $maxPage, $list];
 }
 //データの削除
-// function deleteBoard($db, $posts_id)
+// function deleteBoard($db, $customers_id)
 // {
-//     $statement = $db->prepare('DELETE FROM posts WHERE posts_id=?');
-//     $statement->execute(array($posts_id));
+//     $statement = $db->prepare('DELETE FROM customers WHERE customers_id=?');
+//     $statement->execute(array($customers_id));
 // }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $board = [
