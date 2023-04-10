@@ -45,7 +45,7 @@ function pagiNation($db)
     }
     $page = max($page, 1);
     $page = min($page, $maxPage);
-    //表示する記事の取得
+    //表示する記事の得
     $select = $db->prepare("SELECT * FROM customers ORDER BY id DESC LIMIT :start,:max ");
     //1ページ目の処理
     if ($page === 1) {
