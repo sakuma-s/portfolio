@@ -8,12 +8,12 @@ function connect()
     // $driver_options = [PDO::MYSQL_ATTR_INIT_COMMAND => "SET time_zone='+09:00'"];
     // $host = "saaaMPro.local";
     // $dbname = "portlolio";
-    $dsn = "mysql:host=localhost;port=3306;dbname=db1;charset=utf8mb4";
+    // $dsn = "mysql:host=localhost;port=3306;dbname=db1;charset=utf8mb4";
     $user = "saaaMPro.local";
     $password = "kirasan098";
 
     try {
-        $db = new PDO('mysql:host=localhost;unix_socket=/tmp/mysql.sock', $user, $password);
+        $db = new PDO('mysql:host=localhost;dbname=portfolio;unix_socket=/tmp/mysql.sock', $user, $password);
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     } catch (PDOException $Exception) {
