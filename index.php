@@ -57,34 +57,34 @@ $goodCount = goodList($db);
             </div>
         </form>
         <main>
-            <?php foreach ($list as $value) : ?>
-                <div class="card">
-                    <div class="card-body">
-                        <div class="card-text">
-                            <div><?php echo ($value['posts_id']); ?>&nbsp;<?php echo h($value['nickname']); ?></div>
-                            <div><?php echo h($value['message']); ?></div>
-                            <div><a href="reply_message.php?posts_id=<?php echo ($value['posts_id']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
-                            <!-- <div><a href="?posts_id=<?php echo ($value['posts_id']) ?>">[削除]</a></div> -->
-                            <div><?php echo $value['created_at']; ?></div>
-                            <i class="far fa-thumbs-up"><input data-posts_id=<?php echo ($value['posts_id']); ?> class="good" type="button" name="good" value="good">&nbsp;<?php echo ($value['good_count']); ?>
-                            </i>
-                            <div id="result"></div>
-                        </div>
+            <!-- <?php foreach ($list as $value) : ?> -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-text">
+                        <div><?php echo ($value['posts_id']); ?>&nbsp;<?php echo h($value['nickname']); ?></div>
+                        <div><?php echo h($value['message']); ?></div>
+                        <div><a href="reply_message.php?posts_id=<?php echo ($value['posts_id']); ?>">[コメント]</a><?php echo h($value['reply_message']); ?></div>
+                        <!-- <div><a href="?posts_id=<?php echo ($value['posts_id']) ?>">[削除]</a></div> -->
+                        <div><?php echo $value['created_at']; ?></div>
+                        <i class="far fa-thumbs-up"><input data-posts_id=<?php echo ($value['posts_id']); ?> class="good" type="button" name="good" value="good">&nbsp;<?php echo ($value['good_count']); ?>
+                        </i>
+                        <div id="result"></div>
                     </div>
                 </div>
-            <?php endforeach; ?>
+            </div>
+        <?php endforeach; ?>
         </main>
         <div class="mt-3 mb-5">
             <a href="?page_id=<?php echo ($page === 1); ?>">&nbsp;最初</a>
-            <?php if ($page > 1) : ?>
+            <!-- <?php if ($page > 1) : ?>
                 <a href="?page_id=<?php echo ($page - 1); ?>"><?php echo ($page - 1); ?>ページ</a>
             <?php endif; ?>
             |
-            <?php if ($page < $maxPage) : ?>
-                <a href="?page_id=<?php echo ($page + 1); ?>"><?php echo ($page + 1); ?>ページ</a>
-            <?php endif; ?>
-            |
-            <a href="?page_id=<?php echo $maxPage; ?>">最後</a>
+            <?php if ($page < $maxPage) : ?> -->
+            <a href="?page_id=<?php echo ($page + 1); ?>"><?php echo ($page + 1); ?>ページ</a>
+        <?php endif; ?>
+        |
+        <a href="?page_id=<?php echo $maxPage; ?>">最後</a>
         </div>
         <footer>
             <p class="text-center">&#169; 2021 励まし委員会</p>
