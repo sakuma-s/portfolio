@@ -29,36 +29,36 @@ function validate($board)
     return $errors;
 }
 //ページネーションの作成
-function pagiNation($db)
-{
-    define('max_view', 10);
-    $count = $db->prepare('SELECT COUNT(*) AS count FROM customers');
-    $count->execute();
-    $total_count = $count->fetch(PDO::FETCH_ASSOC);
-    $maxPage = ceil($total_count['count'] / max_view);
-    //ページ番号の取得
-    $page = $_GET['page_id'];
-    if ($page === '') {
-        $page = 1;
-    } else {
-        $page = $_GET['page_id'];
-    }
-    $page = max($page, 1);
-    $page = min($page, $maxPage);
-    //表示する記事の得
-    $select = $db->prepare("SELECT * FROM customers ORDER BY id DESC LIMIT :start,:max ");
-    //1ページ目の処理
-    if ($page === 1) {
-        $select->bindValue(":start", $page - 1, PDO::PARAM_INT);
-        $select->bindValue(":max", max_view, PDO::PARAM_INT);
-    } else {
-        $select->bindValue(":start", ($page - 1) * max_view, PDO::PARAM_INT);
-        $select->bindValue(":max", max_view, PDO::PARAM_INT);
-    }
-    $select->execute();
-    $list = $select->fetchAll(PDO::FETCH_ASSOC);
-    return [$page, $maxPage, $list];
-}
+// function pagiNation($db)
+// {
+//     define('max_view', 10);
+//     $count = $db->prepare('SELECT COUNT(*) AS count FROM customers');
+//     $count->execute();
+//     $total_count = $count->fetch(PDO::FETCH_ASSOC);
+//     $maxPage = ceil($total_count['count'] / max_view);
+//     //ページ番号の取得
+//     $page = $_GET['page_id'];
+//     if ($page === '') {
+//         $page = 1;
+//     } else {
+//         $page = $_GET['page_id'];
+//     }
+//     $page = max($page, 1);
+//     $page = min($page, $maxPage);
+//     //表示する記事の得
+//     $select = $db->prepare("SELECT * FROM customers ORDER BY id DESC LIMIT :start,:max ");
+//     //1ページ目の処理
+//     if ($page === 1) {
+//         $select->bindValue(":start", $page - 1, PDO::PARAM_INT);
+//         $select->bindValue(":max", max_view, PDO::PARAM_INT);
+//     } else {
+//         $select->bindValue(":start", ($page - 1) * max_view, PDO::PARAM_INT);
+//         $select->bindValue(":max", max_view, PDO::PARAM_INT);
+//     }
+//     $select->execute();
+//     $list = $select->fetchAll(PDO::FETCH_ASSOC);
+//     return [$page, $maxPage, $list];
+// // }
 //データの削除
 // function deleteBoard($db, $id)
 // {
